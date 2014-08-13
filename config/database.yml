@@ -3,7 +3,7 @@ development:
   user_name: roman
   password: roman17
   adapter: mysql2
-  database: books_db/development
+  database: books_db_development
   pool: 5
   timeout: 5000
 
@@ -14,7 +14,7 @@ test:
   user_name: roman
   password: roman17
   adapter: mysql2
-  database: books_db/test
+  database: books_db_test
   pool: 5
   timeout: 5000
 
