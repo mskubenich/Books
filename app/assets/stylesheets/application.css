@@ -9,5 +9,54 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree
  */
+html {
+    overflow-y: scroll;
+}
+
+body {
+    padding-top: 120px;
+}
+
+h1 {
+
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+}
+
+p {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.7em;
+
+}
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #5eb95e;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#logo:hover {
+    color: #356635;
+    text-decoration: none;
+}

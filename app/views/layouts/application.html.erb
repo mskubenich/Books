@@ -6,9 +6,34 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "Books", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "LogIn",   '#' %></li>
+              <li><%= link_to "LogOut",  '#' %></li>
+              <li><%= link_to "Admin",   '#' %></li>
+              <li><%= link_to "Profile", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <!--Sidebar content-->
+        </div>
+        <div class="span10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>
