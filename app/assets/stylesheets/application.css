@@ -11,21 +11,15 @@
  *= require_self
  *= require_tree
  */
-.cleaner { clear: both }
-.left { float: left }
-.right { float: right }
+
+
 .center { text-align: center;}
-.block {display: block;}
-.invisible {display: none;}
 
-
-
-
-#logo {
+#books_logo {
     float: left;
     margin-right: 10px;
     font-size: 1.7em;
-    color: #5eb95e;
+    color: #0088cc;
     text-transform: uppercase;
     letter-spacing: -1px;
     padding-top: 9px;
@@ -33,7 +27,7 @@
     line-height: 1;
 }
 
-#logo:hover {
-    color: #356635;
+#books_logo:hover {
+    color: #149bdf;
     text-decoration: none;
 }
