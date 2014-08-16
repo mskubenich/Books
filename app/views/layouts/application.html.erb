@@ -8,21 +8,16 @@
 </head>
 
 <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "Books", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "LogIn",   '#' %></li>
-              <li><%= link_to "LogOut",  '#' %></li>
-              <li><%= link_to "Admin",   '#' %></li>
-              <li><%= link_to "Profile", '#' %></li>
-            </ul>
-          </nav>
-        </div>
+        <a class="brand" href="#">Books</a>
+        <ul class="nav">
+          <li><a href="#">На главную</a></li>
+          <li><a href="#">Ссылка 1</a></li>
+          <li><a href="#">Ссылка 2</a></li>
+        </ul>
       </div>
-    </header>
+    </div>
 
     <div class="container-fluid">
       <div class="row-fluid">

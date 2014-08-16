@@ -11,38 +11,15 @@
  *= require_self
  *= require_tree
  */
-html {
-    overflow-y: scroll;
-}
+.cleaner { clear: both }
+.left { float: left }
+.right { float: right }
+.center { text-align: center;}
+.block {display: block;}
+.invisible {display: none;}
 
-body {
-    padding-top: 120px;
-}
 
-h1 {
 
-    font-size: 3em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-
-}
-
-h2 {
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: normal;
-}
-
-p {
-    padding-top: 5px;
-    text-align: center;
-    font-size: 1.1em;
-    line-height: 1.7em;
-
-}
 
 #logo {
     float: left;
