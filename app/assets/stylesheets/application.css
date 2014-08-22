@@ -9,5 +9,26 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap_and_overrides
+ *= require_tree
  */
+
+
+.center { text-align: center;}
+
+#books_logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #0088cc;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#books_logo:hover {
+    color: #149bdf;
+    text-decoration: none;
+}
