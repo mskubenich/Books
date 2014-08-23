@@ -1,2 +1,12 @@
-<h1>Hello!</h1>
-<%= @user.name %>, <%= @user.email %>
+<h1 align="center">Hello!</h1>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <%= image_tag @user.avatar.url(:small), class: "img-rounded" %>
+    </div>
+    <div class="span10">
+      <%= @user.name %>, <%= @user.email %>
+    </div>
+  </div>
+</div>
