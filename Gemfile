@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 
+gem "paperclip", "~> 4.1"
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara_minitest_spec'
