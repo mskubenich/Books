@@ -4,4 +4,5 @@
     .span2
       = image_tag @user.avatar.url(:small), class: "img-rounded"
     .span10
-      %h1= @user.name
+      .user_name
+        %h1= @user.name
