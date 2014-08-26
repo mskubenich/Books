@@ -1,3 +1,7 @@
-%h1 Hello!
-= @user.name
-, #{@user.email}
+= provide(:title, @user.name)
+.container-fluid
+  .row-fluid
+    .span2
+      = image_tag @user.avatar.url(:small), class: "img-rounded"
+    .span10
+      %h1= @user.name
