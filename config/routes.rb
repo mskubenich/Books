@@ -5,4 +5,5 @@ BooksApp::Application.routes.draw do
   get "pages/index"
   get "/signup", to: "users#new"
   get "/edit_profile", to: "users#edit"
+  get "/profile", to: "users#show"
 end
