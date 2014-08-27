@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %title BooksApp
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse
+      .navbar-inner
+        %a#books_logo.brand{:href => "#"} Books
+        %ul.nav
+          - if signed_in?          
+            %li= link_to "Profile", current_user     
+            .divider
+            %li= link_to "Sign out", signout_path , method: "delete"      
+          - else 
+            %li= link_to "Sign in", signin_path 
+          %li= link_to "SignUp", signup_path
+          %li= link_to "Admin", admins_index_path
+          
+    .container-fluid
+      .row-fluid
+        .span2
+          %ul.nav.nav-list
+            %li.nav-header Title
+            %li
+              %a{:href => "#"} Link1
+            %li
+              %a{:href => "#"} Link2
+            %li
+              %a{:href => "#"} Link3
+            %li
+              %a{:href => "#"} Link4
+        .span10.hero-unit
+          = yield

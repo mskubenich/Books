@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-group :test do
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
-  gem 'shoulda'
-end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -39,19 +34,17 @@ gem 'jbuilder', '~> 1.2'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+gem "paperclip", "~> 4.1"
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara_minitest_spec'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner'
+  gem 'minitest',           :require => nil
+  gem 'poltergeist'
+  gem 'rr'
+  gem 'timecop'
+  gem 'webmock',            :require => nil
+  gem "minitest-rails-shoulda"
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

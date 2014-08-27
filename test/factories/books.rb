@@ -1,12 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :book do
-  	id
-  	title        'test title'
+  factory :book, class: 'Book' do
+  	sequence(:title) { |n| "Book #{n}" }
   	description  'test description'
-  	author       { FactoryGirl.create(:author) }
-  	genre        { FactoryGirl.create(:genre) }
+  	author
+  	genres       []
   	year         2013
   	pages        207
   	format       'test format'
