@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :book, class: 'Book' do
   	sequence(:title) { |n| "Book #{n}" }
   	description  'test description'
-  	author
+  	author       nil
   	genres       []
   	year         2013
   	pages        207

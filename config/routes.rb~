@@ -1,6 +1,0 @@
-BooksApp::Application.routes.draw do
-  get "admins/index"
-  root :to => "pages#index"
-  get "pages/index"
-  
-end

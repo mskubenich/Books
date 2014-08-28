@@ -2,22 +2,17 @@ require_relative '../minitest_helper'
 
 class BookTest < MiniTest::Spec
   describe Book do
-
+  
     before do
       @book = FactoryGirl.create :book
     end
 
-    it "should have many books" do
-      @book.year.must_equal 2013
+    it 'should belongs_to author' do
+      @book.author.must_equal nil
+    end 
+
+    it "has_and_belongs_to_many genres" do
+      @book.genres.must_equal []
     end
-
-    #test 'book belong_to author' do
-    #  assert belong_to(:author)
-    #end
-    #
-    #test 'has_and_belongs_to_many genres' do
-    #  assert have_and_belong_to_many(:genre)
-    #end
-
   end
 end

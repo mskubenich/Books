@@ -46,5 +46,6 @@ group :test do
   gem 'rr'
   gem 'timecop'
   gem 'webmock',            :require => nil
-  gem "minitest-rails-shoulda"
+  gem 'shoulda-matchers'
+  gem 'minitest-matchers'
 end

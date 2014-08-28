@@ -7,8 +7,8 @@ class AuthorTest < MiniTest::Spec
       @author = FactoryGirl.create :author
     end
 
-    #it "should have many books" do
-    #  should have_many(:books)
-    #end
+    it 'should has many books' do
+      @author.books.must_equal []
+    end 
   end
 end

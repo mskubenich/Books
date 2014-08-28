@@ -12,7 +12,7 @@ require "action_controller/test_case"
 require File.expand_path('../../config/environment', __FILE__)
 
 require_relative './capybara_helper'
-require "minitest/rails/shoulda"
+require 'shoulda/matchers'
 
 DatabaseCleaner.strategy = :truncation
 
@@ -57,7 +57,6 @@ end
 MiniTest::Spec.register_spec_type(/Integration$/, AcceptanceSpec)
 
 def response_must_be(type, message = nil)
-  validate_request!
 
   if type.in?([:success, :missing, :redirect, :error]) && @response.send("#{type}?")
     assert true # to count the assertion

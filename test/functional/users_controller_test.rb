@@ -4,7 +4,7 @@ class UsersControllerTest
   describe UsersController do
     it "should get new" do
       get :new
-      response_must_be :success
+      response_must_be :ok
     end
   end
 end

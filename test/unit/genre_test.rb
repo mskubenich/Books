@@ -7,9 +7,9 @@ class GenreTest < MiniTest::Spec
       @genre = FactoryGirl.create :genre
     end
 
-    #test 'genre has_and_belongs_to_many books ' do
-    #  assert have_and_belong_to_many(:books)
-    #end
+    it 'has_and_belongs_to_many books' do
+      @genre.books.must_equal []
+    end 
 
   end
 end
