@@ -14,10 +14,15 @@
             %a{:href => "#"} LogIN
           %li
             %a{:href => "#"} LogOut
-          %li= link_to "SignUp", signup_path
-          %li= link_to "Admin", admins_index_path
           %li
-            %a{:href => "#"} Profile
+            = link_to "SignUp", signup_path
+          %li
+            = link_to "Admin", admins_index_path
+          %li
+            = link_to "Profile", profile_path
+          %li
+            = link_to "Edit Profile", edit_profile_path
+              
     .container-fluid
       .row-fluid
         .span2
