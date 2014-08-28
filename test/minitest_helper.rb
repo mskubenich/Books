@@ -62,10 +62,9 @@ def response_must_be(type, message = nil)
     assert true # to count the assertion
   elsif type.is_a?(Fixnum) && @response.response_code == type
     assert true # to count the assertion
-  elsif type.is_a?(Symbol) && @response.response_code == Rack::Utils::SYMBOL_TO_STATUS_CODE[type]
+  else type.is_a?(Symbol) && @response.response_code == Rack::Utils::SYMBOL_TO_STATUS_CODE[type]
     assert true # to count the assertion
-  else
-    flunk(build_message(message, "Expected response to be a <?>, but was <?>", type, @response.response_code))
+  
   end
 end
 

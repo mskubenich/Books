@@ -17,16 +17,19 @@ class UsersControllerTest
 	  response_must_be :ok
 	end 
 
-	# it 'should  get edit' do
- #      get :edit
- #      response_must_be :ok
-	# end
+	it 'should  get edit' do  
+      @user = FactoryGirl.create(:user)
+      get :edit, id: @user.id
+      response_must_be :ok
+	end
 
 	it "should post update" do
+	  @user = FactoryGirl.create(:user)
 	  patch :update, {
 	  	    user: 
 	  	    { name: 'Example User', email: 'user@gmail.com', password: '[FILTERED]', password_confirmation: '[FILTERED]'
-	  	    }
+	  	    },
+	  	    id: @user.id
 	  }
 	  response_must_be :ok
 	end 	
