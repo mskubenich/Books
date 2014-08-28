@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_attached_file :avatar, :styles => {small: "150x150>"}
-  validates_attachment :avatar, :presence => true, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
+  has_attached_file :avatar, :styles => {small: "150x150>"}, default_url: '01.png'
+  validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
                        :size => {:in => 0..1.megabytes}
 
 end
