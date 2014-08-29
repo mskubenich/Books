@@ -10,19 +10,21 @@
       .navbar-inner
         %a#books_logo.brand{:href => "#"} Books
         %ul.nav
-          %li
-            %a{:href => "#"} LogIN
-          %li
-            %a{:href => "#"} LogOut
-          %li
-            = link_to "SignUp", signup_path
+          - if signed_in?          
+            %li
+              = link_to "Profile", profile_path
+            %li
+              = link_to "Edit Profile", edit_profile_path
+            .divider
+            %li
+              = link_to "Sign out", signout_path , method: "delete"
+          - else 
+            %li
+              = link_to "Sign in", signin_path
+            %li
+              = link_to "SignUp", signup_path
           %li
             = link_to "Admin", admins_index_path
-          %li
-            = link_to "Profile", profile_path
-          %li
-            = link_to "Edit Profile", edit_profile_path
-              
     .container-fluid
       .row-fluid
         .span2
