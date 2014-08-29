@@ -10,11 +10,9 @@
       .navbar-inner
         %a#books_logo.brand{:href => "#"} Books
         %ul.nav
-          - if signed_in?          
+          - if signed_in?
             %li
               = link_to "Profile", profile_path
-            %li
-              = link_to "Edit Profile", edit_profile_path
             .divider
             %li
               = link_to "Sign out", signout_path , method: "delete"
@@ -38,5 +36,5 @@
               %a{:href => "#"} Link3
             %li
               %a{:href => "#"} Link4
-        .span10.hero-unit
+        .span10
           = yield

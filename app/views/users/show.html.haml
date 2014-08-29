@@ -1,8 +1,9 @@
 = provide(:title, @user.name)
-.container-fluid
+.container-fluid.hero-unit
+  = link_to "Edit your profile", edit_profile_path, class: "btn btn-primary right"
   .row-fluid
     .span2
       = image_tag @user.avatar.url(:small), class: "img-rounded"
     .span10
       .user_name
-        %h1= @user.name
+        %h3= @user.name
