@@ -12,7 +12,8 @@ require "action_controller/test_case"
 require File.expand_path('../../config/environment', __FILE__)
 
 require_relative './capybara_helper'
-require 'shoulda/matchers'
+require 'capybara-screenshot'
+require 'capybara-screenshot/minitest'
 
 DatabaseCleaner.strategy = :truncation
 
