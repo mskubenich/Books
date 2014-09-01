@@ -7,7 +7,7 @@ class AuthenticationTest
       visit signin_path
 
       page.must_have_content 'Sign in'
-      page.must_have_content 'Sign in'
+      page.must_have_title 'Sign in'
     end
 
     describe "Authentication", :js => true do
