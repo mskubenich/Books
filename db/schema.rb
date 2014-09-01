@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823115742) do
+ActiveRecord::Schema.define(version: 20140901061454) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -66,5 +66,16 @@ ActiveRecord::Schema.define(version: 20140823115742) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "visits", force: true do |t|
+    t.string   "ip"
+    t.string   "browser"
+    t.string   "browser_version"
+    t.string   "os_name"
+    t.string   "os_version"
+    t.string   "device"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

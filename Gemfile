@@ -35,6 +35,7 @@ gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 
 gem "paperclip", "~> 4.1"
+gem 'agent_orange'
 
 group :test do
   gem 'factory_girl_rails'
