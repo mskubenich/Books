@@ -17,4 +17,6 @@ class ApplicationController < ActionController::Base
                  os_version: os.version.to_s,
                  device: ua.device.to_s
   end
+
+  
 end
