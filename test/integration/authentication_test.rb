@@ -27,7 +27,12 @@ class AuthenticationTest
           page.must_have_link  'Profile', href: profile_path
           page.must_have_link  'Sign out', href: signout_path
           page.must_have_link  'Edit your profile', href: edit_profile_path
-      end
+
+          describe "folowed by signout" do
+            before { click_link "Sign out" }
+            it {must_have_link 'Sign in', href: signin_path}
+          end
+        end
     end
   end
 end
