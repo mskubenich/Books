@@ -1,4 +1,5 @@
-role = Role.create(name: admin)
+admin_role = Role.create(name: admin)
+user_role = Role.create(name: user)
 
 user = User.new(email: "admin@gmail.com", password: "secret", name: "admin")
 user.roles << Role.first

@@ -35,9 +35,9 @@ class User < ActiveRecord::Base
     self.role? :admin
   end
 
-  def self.user?(user)
-    user.role? :user    
-  end
+  # def user?
+  #   self.role? :user    
+  # end
 
   private
 
