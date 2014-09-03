@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  has_many :users_roles
+  has_many :roles, :through => :users_roles
+
   validates :name,  presence: true, length: { maximum: 50 }
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -22,6 +25,18 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def role?(role)
+    !!self.roles.find_by_name(role.to_s.camelize)
+  end
+
+  def admin?
+    self.role? :admin
+  end
+
+  def self.user?(user)
+    user.role? :user    
   end
 
   private

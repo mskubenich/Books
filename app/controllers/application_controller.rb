@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
                  os_version: os.version.to_s,
                  device: ua.device.to_s
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, notice: 'Limited access'
+  end
 end

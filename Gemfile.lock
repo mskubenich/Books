@@ -33,6 +33,7 @@ GEM
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     builder (3.1.4)
+    cancan (1.6.8)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -181,6 +182,7 @@ DEPENDENCIES
   agent_orange
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass
+  cancan
   capybara-screenshot
   capybara_minitest_spec
   coffee-rails (~> 4.0.0)

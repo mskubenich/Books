@@ -37,6 +37,8 @@ gem 'haml-rails'
 gem "paperclip", "~> 4.1"
 gem 'agent_orange'
 
+gem 'cancan'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara_minitest_spec'
