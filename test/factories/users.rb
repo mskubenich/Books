@@ -9,5 +9,16 @@ FactoryGirl.define do
   	avatar                { File.new(Rails.root+ 'app/assets/images/01.png') }
   	created_at            Time.now
   	updated_at            nil
+  	roles                 { [FactoryGirl.create(:user_role)] }
+
+    after(:create) do |user|
+      user.roles = [FactoryGirl.create(:user_role)]
+    end
+
+    factory :admin do
+      after(:create) do |user|
+      	user.roles = [FactoryGirl.create(:admin_role)]
+      end	
+    end
   end
 end

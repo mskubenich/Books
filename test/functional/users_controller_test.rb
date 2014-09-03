@@ -32,6 +32,7 @@ class UsersControllerTest
 	  	    id: @user.id
 	  }
 	  response_must_be :ok
-	end 	
+	end 
+
   end
 end

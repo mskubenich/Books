@@ -1,6 +1,10 @@
 BooksApp::Application.routes.draw do
 
-  resources :users, only: [ :update, :create, :show ]
+  resources :users, only: [ :update, :create, :show ] do 
+    collection do
+      get :confirm
+    end
+  end  
   get "admins/index", to: "admin/admins#index"
   root :to => "pages#index"
   get "pages/index"
@@ -10,5 +14,5 @@ BooksApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-
+  
 end

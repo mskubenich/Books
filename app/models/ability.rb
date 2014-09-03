@@ -10,7 +10,11 @@ class Ability
     
     can :admin do
       user.admin? 
-    end   
+    end  
+
+    can :manage, User do |managed_user|
+      managed_user.id = user.id
+    end    
         
     # Define abilities for the passed in user here. For example:
     #
