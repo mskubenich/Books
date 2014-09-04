@@ -17,9 +17,9 @@ class UsersControllerTest
     end
 
     it 'should  get edit' do
-        @user = FactoryGirl.create(:user)
-        get :edit, id: @user.id
-        response_must_be :ok
+      @user = FactoryGirl.create(:user)
+      get :edit, id: @user.id
+      response_must_be :ok
     end
 
     it "should post update" do
