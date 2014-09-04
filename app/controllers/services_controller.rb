@@ -6,30 +6,41 @@ class ServicesController < ApplicationController
   end
 
   def create
+    # render :text => request.env["omniauth.auth"].to_yaml
     omniauth = request.env['omniauth.auth']
-    if omniauth
-      omniauth['extra']['raw_info']['email'] ? @email =  omniauth['extra']['raw_info']['email'] : @email = ''
-      omniauth['extra']['raw_info']['name'] ? @name =  omniauth['extra']['raw_info']['name'] : @name = ''
-      omniauth['extra']['raw_info']['id'] ?  @uid =  omniauth['extra']['raw_info']['id'] : @uid = ''
-      omniauth['provider'] ? @provider =  omniauth['provider'] : @provider = ''
-      @first_name = omniauth['extra']['raw_info']['first_name'] || ''
-      @last_name = omniauth['extra']['raw_info']['last_name'] || ''
-      @facebook_link = omniauth['extra']['raw_info']['link'] || ''
 
-      # render :text => @uid.to_s + " - " + @name + " - " + @email + " - " + @provider
+    if omniauth && params[:service]
+      service_route = params[:service]
+      @service = service_route
+      if service_route == 'facebook'
+        omniauth['extra']['raw_info']['email'] ? @email =  omniauth['extra']['raw_info']['email'] : @email = ''
+        omniauth['extra']['raw_info']['name'] ? @name =  omniauth['extra']['raw_info']['name'] : @name = ''
+        omniauth['extra']['raw_info']['id'] ?  @uid =  omniauth['extra']['raw_info']['id'] : @uid = ''
+        omniauth['provider'] ? @provider =  omniauth['provider'] : @provider = ''
+      elsif service_route == 'twitter'
+        @email = ''
+        omniauth['info']['nickname'] ? @name =  omniauth['info']['nickname'] : @name = ''
+        omniauth['uid'] ?  @uid =  omniauth['uid'] : @uid = ''
+        omniauth['provider'] ? @provider =  omniauth['provider'] : @provider = ''
+        # render :text => @uid.to_s + " - " + @name + " - " + @email + " - " + @provider
+      end
+    else render :text => omniauth.to_yaml
+
     end
-
 
     if @uid != '' and @provider != ''
       auth = Service.find_by_provider_and_uid(@provider, @uid)
-      if !auth
-        @user = User.create(name: @name, email: @email, password: "foobar", password_confirmation: "foobar")
-        @user.reload.services.create(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
-        flash[:notice] = 'Sign in via ' + @provider.capitalize + ' has been added to your account.'
-      else
-        @user = auth.user
-        flash[:notice] = 'Successful login with' + @provider
-      end
+        if !auth
+          @email = "example@gmail.com" if @email.blank?
+          @user = User.create(name: @name, email: @email, password: "foobar", password_confirmation: "foobar",)
+          @user.reload.services.create(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
+          # @user.update_attribute(:facebook, @facebook_link) if @facebook_link
+          # @user.update_attribute(:twitter, @twitter_link) if @twitter_link
+          flash[:notice] = 'Sign in via ' + @provider.capitalize + ' has been added to your account.'
+        else
+          @user = auth.user
+          flash[:notice] = 'Successful login with' + @provider
+        end
       sign_in @user
       redirect_to profile_path
     end
