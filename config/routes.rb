@@ -11,4 +11,7 @@ BooksApp::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  match '/auth/:services/callback', to: 'services#create', via: 'get'
+  resources :services, only: [:index, :create, :destroy]
+
 end

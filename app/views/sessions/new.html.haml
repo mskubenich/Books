@@ -1,12 +1,24 @@
 =provide(:title, "Sign in")
-%h1 Sign in
-.row
-  .span6.offset3
-    = form_for(:session, url: sessions_path) do |f|
-      = f.label :email
-      = f.text_field :email
-      = f.label :password
-      = f.password_field :password
-      = f.submit "Sign in", class: "btn btn-large btn-primary"
-    %p
-      New user? #{link_to "Sign up now!", signup_path}
+.row.center
+  %h1.center Sign in
+  = form_for(:session, url: sessions_path) do |f|
+    = f.label :email
+    = f.text_field :email
+    = f.label :password
+    = f.password_field :password
+    .center= f.submit "     Login     ", class: "btn btn-large btn-primary"
+  %p
+    New user? #{link_to "Sign up now!", signup_path}
+%h4 Or you can sign in to this account using:
+%a.auth_provider{:href => "/auth/facebook"}
+  = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
+  Facebook
+%a.auth_provider{:href => "/auth/twitter"}
+  = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
+  Twitter
+%a.auth_provider{:href => "/auth/google_apps"}
+  = image_tag "google_64.png", :size => "64x64", :alt => "Google"
+  Google
+%a.auth_provider{:href => "/auth/github"}
+  = image_tag "github_64.png", :size => "64x64",  :alt => "Github"
+  Github
