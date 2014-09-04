@@ -17,6 +17,7 @@ gem 'agent_orange'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :test do
   gem 'factory_girl_rails'
