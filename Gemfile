@@ -23,6 +23,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 
 group :test do
+  gem 'simplecov', :require => false
   gem 'factory_girl_rails'
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
