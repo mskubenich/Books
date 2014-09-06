@@ -1,4 +1,5 @@
 require_relative '../minitest_helper'
+include SessionsHelper
 
 class UsersControllerTest
   describe UsersController do
@@ -16,11 +17,12 @@ class UsersControllerTest
       response_must_be :ok
     end
 
-    it 'should  get edit' do
-      @user = FactoryGirl.create(:user)
-      get :edit, id: @user.id
-      response_must_be :ok
-    end
+      it 'should  get edit' do
+        @user = FactoryGirl.create(:user)
+        sign_in @user
+        get :edit
+        response_must_be :ok
+      end
 
     it "should post update" do
       @user = FactoryGirl.create(:user)
