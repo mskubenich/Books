@@ -4,12 +4,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.row {
-  padding: 20px;
-  padding-right:50px;
+.sign_in {
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
 }
 
+.opcity_signin {
+  position: absolute;
+  width: 500px;
+  height: 250px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  opacity: 0.8;
+}
 
+.services {
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 30%;
+}
+
+.opcity_services {
+  position: absolute;
+  width: 500px;
+  height: 150px;
+  top: 460px;
+  margin-left: 25%;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  opacity: 0.8;
+}
 
 .auth_provider img {
   display: block;
