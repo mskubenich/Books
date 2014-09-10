@@ -9,5 +9,6 @@ Bundler.require(:default, Rails.env)
 module BooksApp
   class Application < Rails::Application
    I18n.enforce_available_locales = true
+   config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
