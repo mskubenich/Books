@@ -1,7 +1,11 @@
 =provide(:title, 'Home')
-.center
-  .btn.btn-primary.btn-large
-    %h1 BOOKS
-  %h2 Welcome to the Books.
-  %p In future this can be awesome web application. Now we in development. Thanks for visit.
-
+.opcity
+.welcome.center
+  %h2
+    Welcome to the
+    %span#BA Books Application
+  %h3 New user?
+  = link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg"
+  %h4
+    or
+    = link_to "Log In", signin_path, class: "btn btn-link"
