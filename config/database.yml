@@ -1,9 +1,9 @@
 
 development:
-  user_name: root
-  password: remeta
+  user_name: VasylRishko
+  password: DFCZhsirj
   adapter: mysql2
-  database: books_db_development
+  database: books_db
   pool: 5
   timeout: 5000
 

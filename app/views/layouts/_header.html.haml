@@ -6,7 +6,6 @@
         - if signed_in?
           %li
             = link_to "Profile", profile_path
-          .divider
           %li
             = link_to "Sign out", signout_path , method: "delete"
         - else
