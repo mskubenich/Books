@@ -4,11 +4,11 @@
   %h1.center Sign in
   = form_for(:session, url: sessions_path) do |f|
     .form-horizontal
-      .form-group
-        = f.label :email
+      .form
+        .center= f.label :email
         = f.text_field :email, placeholder: "Type your email"
-      .form-group
-        = f.label :password
+      .form
+        .center= f.label :password
         = f.password_field :password, placeholder: "Type your password"
     .center= f.submit "     Login     ", class: "btn btn-primary btn-lg"
   %p

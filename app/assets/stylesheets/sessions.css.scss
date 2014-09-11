@@ -16,7 +16,7 @@
 .opcity_signin {
   position: absolute;
   width: 500px;
-  height: 250px;
+  height: 275px;
   top: 100px;
   margin-left: 25%;
   border-radius: 10px;
@@ -39,6 +39,11 @@
   border-radius: 10px;
   background-color: #eeeeee;
   opacity: 0.8;
+}
+
+.form {
+  float: center;
+  margin: 10px;
 }
 
 .auth_provider img {
