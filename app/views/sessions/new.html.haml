@@ -1,7 +1,7 @@
 =provide(:title, "Sign in")
 .opcity_signin
 .sign_in.center
-  %h1.center Sign in
+  %h1#sign_in.center Sign in
   = form_for(:session, url: sessions_path) do |f|
     .form-horizontal
       .form
