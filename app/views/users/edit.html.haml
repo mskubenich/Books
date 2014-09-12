@@ -13,7 +13,7 @@
         %p= f.file_field :avatar
         = f.label :current_password
         = password_field_tag :current_password, params[:current_password], placeholder: "Enter your current password"
-        = f.label "New password"
+        = f.label "New password (leave blank if you don't wont to change it)"
         = f.password_field :password, placeholder: "Enter your new password"
         = f.label "Password_confirmation"
         = f.password_field :password_confirmation, placeholder: "Confirm new password"
