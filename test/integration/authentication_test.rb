@@ -20,7 +20,7 @@ class AuthenticationTest
           visit signin_path
           fill_in "Email", :with => @user.email
           fill_in "Password", :with => @user.password
-          find('.btn.btn-large.btn-primary').click
+          find('.btn.btn-primary.btn-lg').click
 
           page.must_have_title  @user.name
           page.must_have_content  @user.name
