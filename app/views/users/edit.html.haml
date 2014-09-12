@@ -1,4 +1,5 @@
 =provide(:title, 'Edit profile')
+<<<<<<< HEAD
 .row.hero-unit
   .span6.offset4
     %h2 Update your profile
@@ -14,3 +15,24 @@
       = f.password_field :password_confirmation
       %p= f.file_field :avatar
       = f.submit "Save changes", class: "btn btn-large btn-primary"
+=======
+.hero-unit
+  %h1.center Update your profile
+  .row
+    .span6.offset4
+      = form_for(@user) do |f|
+        = render 'shared/error_messages'
+        = f.label :name
+        = f.text_field :name
+        = f.label :email
+        = f.text_field :email
+        = f.label "Chose new avatar"
+        %p= f.file_field :avatar
+        = f.label :current_password
+        = password_field_tag :current_password, params[:current_password], placeholder: "Enter your current password"
+        = f.label "New password (leave blank if you don't wont to change it)"
+        = f.password_field :password, placeholder: "Enter your new password"
+        = f.label "Password_confirmation"
+        = f.password_field :password_confirmation, placeholder: "Confirm new password"
+        %p.offset1= f.submit "Save changes", class: "btn btn-large btn-primary"
+>>>>>>> allow-users-to-change-password

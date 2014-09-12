@@ -23,17 +23,21 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-  end 
+  end
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    user = User.find_by_email(current_user.email).try(:authenticate, params[:current_password])
+    if user && @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
+      sign_in @user
       redirect_to @user
     else
+      flash.now[:error] = "Incorrect Current Password" unless user
+      sign_in @user
       render 'edit'
     end
-  end 
+  end
 
   private
 

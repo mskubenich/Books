@@ -10,12 +10,14 @@ class User < ActiveRecord::Base
   					format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  has_secure_password 
-  validates :password, length: { minimum: 6 }
+  has_secure_password
+
+  validates :password, length: { minimum: 6 }, :on => :create
+  validates :password_confirmation, presence: true, :on => :update, :unless => lambda{ |user| user.password.blank? }
 
   has_attached_file :avatar, :styles => {small: "150x150>"}, default_url: '01.png'
   validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
-                       :size => {:in => 0..1.megabytes} 
+                       :size => {:in => 0..1.megabytes}
 
 
   def User.new_remember_token
