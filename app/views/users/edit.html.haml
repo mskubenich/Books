@@ -1,16 +1,16 @@
 =provide(:title, 'Edit profile')
-%h1 Update your profile
-.row
-  .span6.offset3
+.row.hero-unit
+  .span6.offset4
+    %h2 Update your profile
     = form_for(@user) do |f|
       = render 'shared/error_messages'
-      = f.label :name
+      .field_label= f.label :name
       = f.text_field :name
-      = f.label :email
+      .field_label= f.label :email
       = f.text_field :email
-      = f.label :password
+      .field_label= f.label :password
       = f.password_field :password
-      = f.label :password_confirmation, "Confirm Password"
+      .field_label= f.label :password_confirmation, "Confirm Password"
       = f.password_field :password_confirmation
       %p= f.file_field :avatar
       = f.submit "Save changes", class: "btn btn-large btn-primary"
