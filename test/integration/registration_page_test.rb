@@ -8,16 +8,17 @@ class PagesTest
       find('#new_user #user_email').set('user@gmail.com')
       find('#new_user #user_password').set('qwerty')
       find('#new_user #user_password_confirmation').set('qwerty')
-      find('.btn.btn-large.btn-primary').click
+      find('.btn.btn-primary.btn-lg').click
       page.must_have_content 'Example'
       
       
       visit '/edit_profile'
       find('.edit_user #user_name').set('Example User')
-      find('.edit_user #user_email').set('user@gmail.com')
-      find('.edit_user #user_password').set('qwerty')
-      find('.edit_user #user_password_confirmation').set('qwerty')
-      find('.btn.btn-large.btn-primary').click
+      find('.edit_user #user_email').set('foobar@example.com')
+      find('.edit_user #current_password').set('qwerty')
+      find('.edit_user #user_password').set('foobar')
+      find('.edit_user #user_password_confirmation').set('foobar')
+      find('.btn.btn-primary.btn-lg').click
       page.must_have_content 'Example User'
     end
   end
