@@ -25,6 +25,7 @@ gem 'omniauth-vkontakte'
 
 group :test do
   gem 'simplecov', :require => false
+  gem 'simplecov-rcov'
   gem 'factory_girl_rails'
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
