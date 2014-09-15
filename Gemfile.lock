@@ -69,6 +69,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -181,11 +184,13 @@ DEPENDENCIES
   agent_orange
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass
+  capybara
   capybara-screenshot
   capybara_minitest_spec
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails
+  gon
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

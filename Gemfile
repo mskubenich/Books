@@ -37,8 +37,10 @@ gem 'haml-rails'
 gem "paperclip", "~> 4.1"
 gem 'agent_orange'
 
+gem 'gon'
 group :test do
   gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
