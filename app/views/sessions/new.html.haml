@@ -12,7 +12,7 @@
         = f.password_field :password, placeholder: "Type your password"
     %p= link_to "forgotten password?", new_password_reset_path
     .center= f.submit "     Login     ", class: "btn btn-primary btn-lg"
-    New user? #{link_to "Sign up now!", signup_path}
+    %p New user? #{link_to "Sign up now!", signup_path}
 .opcity_services
 .services
   %h4.center Or you can sign in to this account using:
