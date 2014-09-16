@@ -1,28 +1,33 @@
 =provide(:title, "Sign in")
-.row.center
-  %h1.center Sign in
+.opcity_signin
+.sign_in.center
+  %h1#sign_in.center Sign in
   = form_for(:session, url: sessions_path) do |f|
-    = f.label :email
-    = f.text_field :email
-    = f.label :password
-    = f.password_field :password
+    .form-horizontal
+      .form
+        .center= f.label :email
+        = f.text_field :email, placeholder: "Type your email"
+      .form
+        .center= f.label :password
+        = f.password_field :password, placeholder: "Type your password"
     %p= link_to "forgotten password?", new_password_reset_path
-    .center= f.submit "     Login     ", class: "btn btn-large btn-primary"
-  %p
+    .center= f.submit "     Login     ", class: "btn btn-primary btn-lg"
     New user? #{link_to "Sign up now!", signup_path}
-%h4 Or you can sign in to this account using:
-%a.auth_provider{:href => "/auth/facebook"}
-  = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
-  Facebook
-%a.auth_provider{:href => "/auth/twitter"}
-  = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
-  Twitter
-%a.auth_provider{:href => "/auth/google_oauth2"}
-  = image_tag "google_64.png", :size => "64x64", :alt => "Google"
-  Google
-%a.auth_provider{:href => "/auth/github"}
-  = image_tag "github_64.png", :size => "64x64",  :alt => "Github"
-  Github
-%a.auth_provider{:href => "/auth/vkontakte"}
-  = image_tag "vk_64.png", :size => "64x64",  :alt => "Vkontakte"
-  Vkontakte
+.opcity_services
+.services
+  %h4.center Or you can sign in to this account using:
+  %a.auth_provider{:href => "/auth/facebook"}
+    = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
+    Facebook
+  %a.auth_provider{:href => "/auth/twitter"}
+    = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
+    Twitter
+  %a.auth_provider{:href => "/auth/google_oauth2"}
+    = image_tag "google_64.png", :size => "64x64", :alt => "Google"
+    Google
+  %a.auth_provider{:href => "/auth/github"}
+    = image_tag "github_64.png", :size => "64x64",  :alt => "Github"
+    Github
+  %a.auth_provider{:href => "/auth/vkontakte"}
+    = image_tag "vk_64.png", :size => "64x64",  :alt => "Vkontakte"
+    Vkontakte

@@ -1,0 +1,17 @@
+%header.navbar-fixed-top.navbar-default
+  .navbar-inner
+    .container
+      = link_to "Books", root_path, id: "books_logo", class:"active"
+      %ul.nav.nav-pills.pull-right
+        - if signed_in?
+          %li
+            = link_to "Profile", profile_path
+          %li
+            = link_to "Sign out", signout_path , method: "delete"
+        - else
+          %li
+            = link_to "Sign in", signin_path
+          %li
+            = link_to "SignUp", signup_path
+          %li.active
+            = link_to "Admin", admins_index_path

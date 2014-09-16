@@ -198,6 +198,8 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   shoulda-matchers
   simplecov
+  simplecov-rcov
   timecop
   turbolinks
   twitter-bootstrap-rails

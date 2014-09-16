@@ -26,8 +26,9 @@ class UsersControllerTest
 
     it "should post update" do
       @user = FactoryGirl.create(:user)
-
-      patch :update, {user: { name: 'Example User',
+      sign_in @user
+      patch :update, {user: { current_password: 'qwerty',
+                              name: 'Example User',
                               email: 'user@gmail.com',
                               password: '[FILTERED]',
                               password_confirmation: '[FILTERED]'},

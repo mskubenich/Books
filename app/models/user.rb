@@ -13,10 +13,12 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :password, presence: true, length: { minimum: 6 }, if: :password
+  validates :password_confirmation, presence: true, :on => :update, :unless => lambda{ |user| user.password.blank? }
 
   has_attached_file :avatar, :styles => {small: "150x150>"}, default_url: '01.png'
   validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
                        :size => {:in => 0..1.megabytes}
+
   before_create { generate_token(:auth_token) }
 
   def generate_token(column)
@@ -31,13 +33,6 @@ class User < ActiveRecord::Base
     save!
     UserMailer.password_reset(self).deliver
   end
-
-  # def send_password_reset
-  #   generate_token(:password_reset_token)
-  #   self.password_reset_sent_at = Time.zone.now
-  #   save!
-  #   UseerMailer.password_reset(self).deliver
-  # end
 
   def User.new_remember_token
   	SecureRandom.urlsafe_base64

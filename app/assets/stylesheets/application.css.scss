@@ -12,11 +12,49 @@
  *= require bootstrap_and_overrides
  *= require_tree
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
+.center {
+  text-align: center;
+}
 
-.center { text-align: center;}
-.right  {float: right;}
-.left   {float: left;}
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+body {
+  padding-top: 70px;
+  background-image: image-url("books.jpg");
+  background-size: cover;
+}
+
+.opcity {
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  opacity: 0.7;
+}
+.welcome {
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
+}
+
+#BA {
+  color: #0088cc;
+}
 
 #books_logo {
     float: left;
@@ -31,6 +69,6 @@
 }
 
 #books_logo:hover {
-    color: #149bdf;
+    color: #0e4766;
     text-decoration: none;
 }

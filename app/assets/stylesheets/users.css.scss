@@ -1,10 +1,69 @@
 // Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
-  text-align: left;
-  margin-top: 15px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#update {
+  color: #0088cc;
 }
+
+#new_pass{
+  height: 20px;
+}
+
+.blank_fields{
+  margin-bottom: 10px;
+  height: 20px;
+  color: #5a5a5a;
+  font-size: 0.7em;
+}
+
+#sub_button{
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.opcity_signup {
+  position: absolute;
+  width: 500px;
+  height: 440px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  opacity: 0.8;
+}
+
+.sign_up {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  top: 100px;
+  margin-left: 25%;
+  border-radius: 10px;
+}
+
+#registration {
+  color: #0088cc;
+}
+
+#chose_avatar {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  font-weight: bolder;
+}
+
+.avatar {
+  margin-left: 25%;
+}
+
+#signup_submit {
+  margin-top: 20px;
+}
+
 .user_name{
   color: #0088cc;
   text-shadow: 0px 0px 2px #babeba, 0 0 1em #2067ff;
