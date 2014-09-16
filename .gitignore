@@ -16,5 +16,4 @@
 /tmp
 .idea/
 /public/system
-/config/database.yml
 coverage/
