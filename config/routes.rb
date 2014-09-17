@@ -15,6 +15,5 @@ BooksApp::Application.routes.draw do
   resources :services, only: [:index, :create, :destroy]
 
   resources :password_resets
-  get "password_resets/new"
 
 end
