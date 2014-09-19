@@ -37,6 +37,13 @@ class UsersControllerTest
                      }
 
       response_must_be :ok
-    end
+    end  
+   
+    it 'should get confirm' do
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+      get :confirm 
+      response_must_be :ok
+    end  
   end
 end
