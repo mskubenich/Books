@@ -8,3 +8,13 @@ class UsersControllerTest
     end
   end
 end
+
+# !!!!
+require  "minitest_helper"
+
+describe UsersController do
+  it "converts number to currency" do
+    skip "Do this now"
+    number_to_currency(1).must_equal "list 1"
+  end
+end

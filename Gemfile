@@ -8,7 +8,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'  
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,14 +37,22 @@ gem 'haml-rails'
 gem "paperclip", "~> 4.1"
 
 group :test do
-  gem 'factory_girl_rails'
+  #Unit Test - default testing framework
+  #gem 'rspec-rails' #testing framework
+  gem 'minitest',           :require => nil # testing framework
+  gem "minitest-rails-shoulda"
+
+  gem 'capybara' # additional framework for end-to-end testing
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
-  gem 'database_cleaner'
-  gem 'minitest',           :require => nil
-  gem 'poltergeist'
+
+  gem "capybara-webkit"
+  gem 'phantomjs'
+  gem 'poltergeist' # connect capybara to phantomjs
+
+  gem 'factory_girl_rails' #hold testing data
+  gem 'database_cleaner' # cleaning database
   gem 'rr'
   gem 'timecop'
   gem 'webmock',            :require => nil
-  gem "minitest-rails-shoulda"
 end
