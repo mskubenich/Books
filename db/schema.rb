@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 20140908110041) do
     t.string   "device"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
 end
