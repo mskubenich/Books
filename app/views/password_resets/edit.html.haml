@@ -1,15 +1,18 @@
-%h1 Reset Password
-= form_for @user, :url => password_reset_path(params[:id]) do |f|
-  - if @user.errors.any?
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        - for message in @user.errors.full_messages
-          %li= message
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .actions= f.submit "Update Password"
+.opcity_pass_reset_edit
+.pass_reset_edit
+  %h1.center#RP Reset Password
+  = form_for @user, :url => password_reset_path(params[:id]) do |f|
+    .span4.offset1.form-horizontal
+      - if @user.errors.any?
+        .error_messages
+          %h2 Form is invalid
+          %ul
+            - for message in @user.errors.full_messages
+              %li= message
+      .form
+        = f.label :password
+        #pass_field= f.password_field :password, placeholder: "Type your new password"
+      .form
+        = f.label :password_confirmation
+        #pass_field= f.password_field :password_confirmation, placeholder: "Confirm your password"
+    .actions.center= f.submit "Update Password", class: "btn btn-success"
