@@ -19,6 +19,20 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
                        :size => {:in => 0..1.megabytes}
 
+  before_create { generate_token(:auth_token) }
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    self.password_reset_token = SecureRandom.urlsafe_base64
+    self.password_reset_sent_at = Time.now
+    save!
+    UseerMailer.password_reset(self).deliver
+  end
 
   def User.new_remember_token
   	SecureRandom.urlsafe_base64

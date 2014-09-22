@@ -1,5 +1,6 @@
 BooksApp::Application.routes.draw do
 
+  get "password_resets/new"
   resources :users, only: [ :update, :create, :show ]
   root :to => "pages#index"
   get "pages/index"
@@ -16,4 +17,6 @@ BooksApp::Application.routes.draw do
 
   get '/auth/:service/callback', to: 'services#create'
   resources :services, only: [:index, :create, :destroy]
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
