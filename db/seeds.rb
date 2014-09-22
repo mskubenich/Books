@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Book.create(title: 'The Old Man And The Sea', description: 'Ernest Hemingway', year: 1952, language: 'English', pages: 127)
+Book.create(title: 'The Idiot', description: 'Fyodor Dostoevsky', year: 1969, language: 'Russian', pages: 0)
+Book.create(title: 'The Kobzar', description: 'Taras Shevchenko', year: 1840, language: 'Ukrainian', pages: 0)
