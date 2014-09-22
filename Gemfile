@@ -23,10 +23,12 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 
+gem 'gon'
 group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
   gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
   gem 'database_cleaner'

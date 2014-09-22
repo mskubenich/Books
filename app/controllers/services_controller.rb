@@ -44,9 +44,9 @@ class ServicesController < ApplicationController
         if !auth
           @email = "example@gmail.com" if @email.blank?
           @user = User.create(name: @name, email: @email, password: "foobar", password_confirmation: "foobar")
-          @user.reload.services.create(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
-          @user.reload.services.create(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
+          @user.services << Service.create(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
           flash[:notice] = 'Sign in via ' + @provider.capitalize + ' has been added to your account.'
+          @user.save
         else
           @user = auth.user
           flash[:notice] = 'Successful login with' + @provider
