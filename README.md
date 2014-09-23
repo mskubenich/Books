@@ -1,5 +1,10 @@
 == README
 
+# Books: первое приложение
+
+Это первое приложение для
+["mskubenich/Books"] (https://github.com/mskubenich/Books)
+ [Yuriyan/Bra_Rm](https://github.com/Yuriyan/Bra_Rm).
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
