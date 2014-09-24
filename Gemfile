@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'paperclip', "~> 4.1"
 gem 'agent_orange'
 gem 'rails_best_practices'
+gem 'cancan'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
