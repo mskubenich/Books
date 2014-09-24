@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
 
   before_create { generate_token(:auth_token) }
 
+  def admin?
+    self.role.present? && self.role.name == 'admin'
+  end
+
+  def user?
+    self.role.present? && self.role.name == 'user'
+  end
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
