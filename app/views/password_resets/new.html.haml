@@ -1,0 +1,8 @@
+.opocity_pass_reset_new
+.pass_reset_new.center
+  = form_tag password_resets_path, :method => :post do
+    .form-horizontal
+      .form
+        = label_tag :email
+        = text_field_tag :email, params[:email], placeholder: "Type your email"
+    .actions= submit_tag "Reset Password", class: "btn btn-success"

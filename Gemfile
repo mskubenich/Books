@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
+
+
+
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'mysql2'
@@ -23,10 +26,12 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 
+gem 'gon'
 group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
   gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
   gem 'database_cleaner'

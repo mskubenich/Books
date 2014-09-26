@@ -1,3 +1,4 @@
+
 =provide(:title, 'Edit profile')
 .row.hero-unit
   %h1.center
@@ -17,5 +18,7 @@
       .field_label= f.label "Password_confirmation"
       = f.password_field :password_confirmation, placeholder: "Confirm new password"
       .field_label= f.label "Chose new avatar"
-      = f.file_field :avatar
-      %p#sub_button= f.submit "Save changes", class: "btn btn-primary btn-lg"
+      = f.file_field :avatar, :id => "file-field",:multiple => "true", :name => "user[avatar]", :type => "file" 
+
+      %ul#img-list 
+      %p#sub_button= f.submit "Save changes", class: "btn btn-primary btn-lg" 
