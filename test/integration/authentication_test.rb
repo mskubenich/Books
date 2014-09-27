@@ -11,7 +11,6 @@ class AuthenticationTest
     end
 
     describe "Authentication", :js => true do
-
       before do
         @user = FactoryGirl.create(:user, name: "Test User", email: "test@example.com", password: "foobar", password_confirmation: "foobar")
       end
@@ -33,6 +32,17 @@ class AuthenticationTest
             it {must_have_link 'Sign in', href: signin_path}
           end
         end
+
+        it 'signin with wrong parameters' do
+          visit signin_path
+          find('#session_email').set('Test@ex.com')
+          find('#session_password').set('foo')
+          find('.btn.btn-primary.btn-lg').click
+
+          page.must_have_link 'Sign in', href: signin_path
+          page.must_have_link 'Admin', href: admin_statistics_path
+          page.must_have_link 'SignUp', href: signup_path  
+        end  
     end
   end
 end
