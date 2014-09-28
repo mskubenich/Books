@@ -1,5 +1,6 @@
 BooksApp::Application.routes.draw do
 
+  
   resources :users, only: [ :update, :create, :show ]
   get "admins/index", to: "admin/admins#index"
   root :to => "pages#index"
@@ -15,5 +16,5 @@ BooksApp::Application.routes.draw do
   resources :services, only: [:index, :create, :destroy]
 
   resources :password_resets
-
+  resources :books, only: [:index]
 end

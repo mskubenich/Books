@@ -1,0 +1,21 @@
+%table.book-list.table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Year
+      %th Language
+      %th Pages
+  %tbody
+    - @books.each do |book|
+      %tr
+        %td 
+          = book.title
+        %td 
+          = book.description
+        %td 
+          = book.year
+        %td 
+          = book.language
+        %td 
+          = book.pages
