@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 50 }
   before_save { self.email = email.downcase }
   before_create :create_remember_token
+  before_create :generate_sign_in_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
   					format: { with: VALID_EMAIL_REGEX },
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def generate_sign_in_token
+    self.sign_in_token = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
 
   private

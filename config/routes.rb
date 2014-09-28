@@ -1,7 +1,10 @@
 BooksApp::Application.routes.draw do
 
-  
-  resources :users, only: [ :update, :create, :show ]
+  resources :users, only: [ :update, :create, :show ] do 
+    collection do
+      get :confirm
+    end
+  end
   get "admins/index", to: "admin/admins#index"
   root :to => "pages#index"
   get "pages/index"
