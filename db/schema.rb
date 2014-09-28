@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903123812) do
+ActiveRecord::Schema.define(version: 20140916093919) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20140903123812) do
     t.string   "device"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
 end
