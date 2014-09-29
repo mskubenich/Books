@@ -1,12 +1,11 @@
 BooksApp::Application.routes.draw do
 
-  get "users/index"
+  
   resources :users, only: [ :update, :create, :show ] do 
     collection do
       get :confirm
     end
   end
-  get "admins/index", to: "admin/admins#index"
   root :to => "pages#index"
   get "pages/index"
   get "/signup", to: "users#new"
@@ -22,6 +21,7 @@ BooksApp::Application.routes.draw do
   resources :password_resets
   resources :books, only: [:index]
   namespace :admin do
+    resources :statistics, only: [:index]
     resources :users, only: [:index]
   end
 end
