@@ -72,3 +72,17 @@ body {
     color: #0e4766;
     text-decoration: none;
 }
+
+.book-list{
+  td, th {
+    border: 1px solid #0088cc;
+  }
+  th {
+    background-color: #0088cc;
+    color: white;
+  }
+  td {
+    background-color: white;
+  }
+}
+
