@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008165228) do
+ActiveRecord::Schema.define(version: 20140930072857) do
+create a friendship model; migrate table 'friendship' into database
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -49,6 +50,15 @@ ActiveRecord::Schema.define(version: 20141008165228) do
   add_index "books_genres", ["book_id"], name: "index_books_genres_on_book_id", using: :btree
   add_index "books_genres", ["genre_id"], name: "index_books_genres_on_genre_id", using: :btree
 
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "accepted_at"
+    t.datetime "updated_at"
+  end
+
   create_table "genres", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -83,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141008165228) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "auth_token"
+    t.integer  "role_id"
     t.string   "sign_in_token"
     t.integer  "role_id"
   end
