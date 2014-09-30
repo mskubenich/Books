@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-  before_action :create_visit, onlu: [:save_statistic]
+  before_action :create_visit, onlu: [:save_visit]
   before_action :signed_in_user, only: [:edit, :update]
   
 
@@ -25,11 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
 
-def save_statistic
+def save_visit
   users_ip = Visit.ip.each do |user_ip|
-  visit_date = @user_ip.created_at
-  
-    if user_ip != request.remote_ip && (visit_date-Visit.created_at) >24*3600
+  visit_date = Visit.find[params[:user_ip]].created_at
+
+    if user_ip != request.remote_ip && (Time.now-visit_date) > 24*3600
       create_visit
     end
   end

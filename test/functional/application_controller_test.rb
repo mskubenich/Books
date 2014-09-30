@@ -64,5 +64,10 @@ class ApplicationControllerTest
 			visit.os_version.must_equal '8'
 			visit.device.must_equal 'mobile'
 		end
+
+		it 'it should save visit if comfirm valid' do
+			stub(save_visit)
+			get :index
+		end
 	end
 end
