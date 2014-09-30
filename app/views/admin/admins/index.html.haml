@@ -1,4 +1,15 @@
-=provide(:title, 'Admin')
+=provide(:title, 'Admin')	
 %h1 Admin::Admins#index
 %p Find me in app/views/admin/admins/index.html.haml
 = link_to "Admin", admins_index_path
+- @visitors = Visit.all
+- @visitors.each do |visitor|
+ = visitor.id
+ = visitor.ip
+ = visitor.browser
+ = visitor.browser_version
+ = visitor.os_name
+ = visitor.os_version
+ = visitor.device
+ = visitor.updated_at
+ %br/
