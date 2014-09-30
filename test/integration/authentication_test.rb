@@ -39,6 +39,7 @@ class AuthenticationTest
           find('#session_password').set('foo')
           find('.btn.btn-primary.btn-lg').click
 
+          page.must_have_content 'Invalid email/password combination'
           page.must_have_link 'Sign in', href: signin_path
           page.must_have_link 'Admin', href: admin_statistics_path
           page.must_have_link 'SignUp', href: signup_path  
