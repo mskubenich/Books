@@ -1,6 +1,22 @@
 class User < ActiveRecord::Base
   belongs_to :role
 
+  has_many :friendships
+  has_many :friends,
+           :through => :friendships,
+           :conditions => "status = 'accepted'",
+           :order => :name
+  has_many :requested_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'requested'",
+           :order => :created_at
+  has_many :pending_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'pending'",
+           :order => :created_at
+
   has_many :services, :dependent => :destroy
 
   validates :name,  presence: true, length: { maximum: 50 }

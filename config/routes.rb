@@ -27,7 +27,15 @@ BooksApp::Application.routes.draw do
   end 
   resources :services, only: [:index, :create, :destroy]
 
-  resources :books, only: [:index, :new, :create, :show]
-
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :password_resets
+  resources :books, only: [:index]
+  resources :friendship, only: [:create, :accept, :decline, :cancel, :delete] do
+    collection do
+      get :create
+      get :accept
+      get :decline
+      get :cancel
+      get :delete
+    end
+  end
 end
