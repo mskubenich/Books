@@ -12,4 +12,5 @@
       %h3.user_name= @user.name
       .friends
         %h2 Friends
+      =render 'users/friends'
       .center=link_to "Find more friends", users_path, class: "btn btn-info"
