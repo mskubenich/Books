@@ -1,0 +1,13 @@
+.hero-unit
+  %table
+    - @users.each do |user|
+      %tr
+        %td.ul_column
+          =image_tag user.avatar.url(:small), class: "img-rounded"
+        %td.ul_column
+          = user.name
+          %p
+            = link_to "Add to friends", { :controller => "friendship",
+                                                              :action => "create",
+                                                              :id => user.name },
+            :confirm => "Send friend request to #{user.name}?"

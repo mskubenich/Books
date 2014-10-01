@@ -1,6 +1,6 @@
 BooksApp::Application.routes.draw do
 
-  resources :users, only: [ :update, :create, :show ] do 
+  resources :users, only: [ :update, :create, :show, :index ] do
     collection do
       get :confirm
     end

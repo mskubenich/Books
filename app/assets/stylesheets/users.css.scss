@@ -61,7 +61,22 @@
   margin-top: 20px;
 }
 
-.user_name {
+.user_name{
+  text-align: center;
   color: #0088cc;
   text-shadow: 0px 0px 2px #babeba, 0 0 1em #2067ff;
+}
+
+.friends {
+  text-align: center;
+  color: #0088cc;
+}
+
+.ul_column {
+  padding: 10px;
+}
+
+.adc {
+  padding-left: 40px;
+  font-size: 0.7em;
 }

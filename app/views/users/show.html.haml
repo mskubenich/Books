@@ -10,3 +10,6 @@
       = image_tag @user.avatar.url(:small), class: "img-rounded"
     .col-lg-10
       %h3.user_name= @user.name
+      .friends
+        %h2 Friends
+      .center=link_to "Find more friends", users_path, class: "btn btn-info"
