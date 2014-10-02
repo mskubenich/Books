@@ -20,20 +20,6 @@ ActiveRecord::Schema.define(version: 20140916122325) do
     t.datetime "updated_at"
   end
 
-  create_table "book2s", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "author_id"
-    t.string   "genre_id"
-    t.string   "year"
-    t.string   "pages"
-    t.string   "format"
-    t.string   "language"
-    t.string   "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "books", force: true do |t|
     t.string   "title"
     t.string   "description"
