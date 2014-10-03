@@ -5,7 +5,6 @@ BooksApp::Application.routes.draw do
       get :confirm
     end
   end
-  get "admins/index", to: "admin/admins#index"
   root :to => "pages#index"
   get "pages/index"
   get "/signup", to: "users#new"
@@ -16,6 +15,10 @@ BooksApp::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   match '/auth/:service/callback', to: 'services#create', via: 'get'
+  namespace :admin do
+    resources :users, only: [ :index ]
+    resources :statistics, only: [ :index ]
+  end 
   resources :services, only: [:index, :create, :destroy]
 
   resources :password_resets

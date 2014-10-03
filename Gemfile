@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'paperclip', "~> 4.1"
 gem 'agent_orange'
 gem 'rails_best_practices'
+gem 'gon'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -26,7 +27,7 @@ gem 'omniauth-vkontakte'
 group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails' 
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
