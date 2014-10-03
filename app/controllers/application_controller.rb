@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :signed_in_user, only: [:edit, :update]
   
 
-  @@ASD = 34*4
-
   private
 
   def create_visit
