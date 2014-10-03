@@ -65,9 +65,19 @@ class ApplicationControllerTest
 			visit.device.must_equal 'mobile'
 		end
 
-		it 'it should save visit if comfirm valid' do
-			stub(save_visit)
+		
+		it ' should create new visit unles visit with the same ip does not exsits' do 
+			@controller = PagesController.new
 			get :index
+			Visit.count.must_equal 1 
 		end
+
+		it 'should not  create new visit if visit with new same ip' do
+			@controller = PagesController.new
+			FactoryGirl.create :visit 
+			get :index
+			Visit.count.must_equal 1
+	    end
+
 	end
 end

@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-  before_action :create_visit, onlu: [:save_visit]
+  before_action :save_visit
   before_action :signed_in_user, only: [:edit, :update]
   
+
+  @@ASD = 34*4
 
   private
 
@@ -26,12 +28,9 @@ class ApplicationController < ActionController::Base
 
 
 def save_visit
-  users_ip = Visit.ip.each do |user_ip|
-  visit_date = Visit.find[params[:user_ip]].created_at
-
-    if user_ip != request.remote_ip && (Time.now-visit_date) > 24*3600
+  visits = Visit.where("ip = ? AND created_at > ? ", request.remote_ip , Time.now.beginning_of_day )
+    if visits.blank? 
       create_visit
-    end
   end
 end
 
