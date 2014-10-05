@@ -6,7 +6,7 @@ FactoryGirl.define do
   	email                 'user@gmail.com'
   	password              'qwerty'
   	password_confirmation 'qwerty'
-  	avatar                { File.new(Rails.root+ 'app/assets/images/01.png') }
+  	avatar                { File.new(Rails.root+ 'app/assets/images/default_avatar.png') }
   	created_at            Time.now
   	updated_at            nil
   end
