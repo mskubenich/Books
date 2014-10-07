@@ -37,4 +37,5 @@ group :test do
   gem 'webmock',            :require => nil
   gem 'shoulda-matchers'
   gem 'minitest-matchers'
+  gem 'minitest-colorize'
 end

@@ -17,6 +17,8 @@ require_relative './capybara_helper'
 require 'capybara-screenshot'
 require 'capybara-screenshot/minitest'
 
+require 'minitest-colorize'
+
 DatabaseCleaner.strategy = :truncation
 
 class MiniTest::Spec
