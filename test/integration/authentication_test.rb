@@ -41,7 +41,10 @@ class AuthenticationTest
       page.must_have_link 'Sign in', href: signin_path
       page.must_have_link 'Admin', href: admins_index_path
       page.must_have_link 'SignUp', href: signup_path
+
+      page.wont_have_link 'Profile'
+      page.wont_have_link 'Sign out'
     end
-    
+
   end
 end
