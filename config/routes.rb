@@ -1,5 +1,6 @@
 BooksApp::Application.routes.draw do
 
+  
   resources :users, only: [ :update, :create, :show ] do 
     collection do
       get :confirm
@@ -23,4 +24,8 @@ BooksApp::Application.routes.draw do
 
   resources :password_resets
   resources :books, only: [:index]
+  namespace :admin do
+    resources :statistics, only: [:index]
+    resources :users, only: [:index]
+  end
 end

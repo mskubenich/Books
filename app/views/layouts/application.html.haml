@@ -9,8 +9,7 @@
   %body
     = render "layouts/header"
     .container
-      .span10
-        - if flash[:notice]
-          .alert
-            = flash[:notice]
+      - if flash[:notice]
+        .alert
+          = flash[:notice]
       = yield

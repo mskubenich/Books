@@ -7,17 +7,13 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = include_gon
   %body
     = render "layouts/header"
     .container
-      .span10
+      .span12
         - if flash[:notice]
           .alert
             = flash[:notice]
-      .span      
-      %ul#myTab.nav.nav-tabs
-        %li.active
-          = link_to "Visitor statistics" 
-        %li
-          = link_to "Users", admin_users_path      
+      = render partial: "admin/tabs"
       = yield

@@ -28,13 +28,16 @@
 }
 
 body {
-  padding-top: 70px;
   background-image: url(books.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   height: 100%;
+}
+
+body > .container{
+  margin-top: 100px;
 }
 
 .opcity {
@@ -76,3 +79,17 @@ body {
     color: #0e4766;
     text-decoration: none;
 }
+
+.book-list{
+  td, th {
+    border: 1px solid #0088cc;
+  }
+  th {
+    background-color: #0088cc;
+    color: white;
+  }
+  td {
+    background-color: white;
+  }
+}
+
