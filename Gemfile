@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.2'
-
-gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 4.0.0'
@@ -10,7 +8,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'haml-rails'
 gem 'paperclip', "~> 4.1"
 gem 'agent_orange'

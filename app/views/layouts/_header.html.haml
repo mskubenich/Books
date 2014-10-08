@@ -1,17 +1,31 @@
-%header.navbar-fixed-top.navbar-default
-  .navbar-inner
-    .container
-      = link_to "Books", root_path, id: "books_logo", class:"active"
-      %ul.nav.nav-pills.pull-right
-        - if signed_in?
-          %li
-            = link_to "Profile", profile_path
-          %li
-            = link_to "Sign out", signout_path , method: "delete"
-        - else
-          %li
+.navbar-header
+  %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  = link_to root_path, class: 'navbar-brand' do
+    Books
+.navbar-collapse.collapse.navbar-responsive-collapse
+  %ul.nav.navbar-nav
+    - if signed_in? && current_user.admin?
+      %li.active
+        = link_to "Admin", admin_statistics_path
+  - if signed_in?
+    %ul.nav.navbar-nav.navbar-right
+      - if signed_in?
+        %li
+          %p.navbar-text
+            Hello
+            = link_to current_user.name, profile_path
+            !
+        %li
+          .btn.btn-default.navbar-btn
+            = link_to signout_path, method: :delete do
+              Sign Out
+      - else
+        %li
+          .btn.btn-default.navbar-btn
             = link_to "Sign in", signin_path
-          %li
-            = link_to "SignUp", signup_path
-        %li.active
-          = link_to "Admin", admin_statistics_path
+        %li
+          .btn.btn-default.navbar-btn
+            = link_to "Sign Up", signup_path
