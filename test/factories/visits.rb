@@ -1,8 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :visit do
-    ip               '93.192.76.1'
+    ip               '0.0.0.0'
   	browser         'Opera'
   	browser_version '11'
   	os_name         'Linux'

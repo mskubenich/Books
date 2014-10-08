@@ -64,5 +64,18 @@ class ApplicationControllerTest
 			visit.os_version.must_equal '8'
 			visit.device.must_equal 'mobile'
 		end
+
+		it ' should create new visit unles visit with the same ip does not exsits' do 
+			@controller = PagesController.new
+			get :index
+			Visit.count.must_equal 1 
+		end
+
+		it 'shouldn\'t create new visit if there is a visit with the same ip' do
+			@controller = PagesController.new
+			FactoryGirl.create :visit 
+			get :index
+			Visit.count.must_equal 1
+	  end
 	end
 end

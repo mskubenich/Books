@@ -7,7 +7,7 @@ class CreateVisits < ActiveRecord::Migration
       t.string :os_name
       t.string :os_version
       t.string :device
-      t.timestamps
+      t.timestamps  
     end
   end
 end
