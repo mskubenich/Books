@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :role
 
   has_many :services, :dependent => :destroy
 
@@ -13,7 +14,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :password, presence: true, length: { minimum: 6 }, if: :password
+  validates :password, length: { minimum: 6 }, :on => :create
   validates :password_confirmation, presence: true, :on => :update, :unless => lambda{ |user| user.password.blank? }
 
   has_attached_file :avatar, :styles => {small: "150x150>"}, default_url: '01.png'
@@ -21,6 +22,14 @@ class User < ActiveRecord::Base
                        :size => {:in => 0..1.megabytes}
 
   before_create { generate_token(:auth_token) }
+
+  def admin?
+    self.role.present? && self.role.name == 'admin'
+  end
+
+  def user?
+    self.role.present? && self.role.name == 'user'
+  end
 
   def generate_token(column)
     begin

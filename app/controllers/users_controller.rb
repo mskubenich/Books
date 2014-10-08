@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = User.new( user_params )
     respond_to do |format|
       if @user.save
-        # Сказать UserMailer отослать приветственное письмо после сохранения
         UserMailer.account_confirmation_mailer(@user, confirm_users_url(sign_in_token: @user.sign_in_token) ).deliver
         format.html { redirect_to(root_path, notice: 'You have successfully registered. We send you an activation email! Please check your email and click the link to activate the report. ') }
       else
@@ -53,13 +52,18 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :avatar)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation, :avatar)
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
 end

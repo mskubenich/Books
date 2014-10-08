@@ -1,5 +1,4 @@
 $ ->
-  #Create the chart
   if gon? && gon.visits?
     $("#container").highcharts "StockChart",
       rangeSelector:

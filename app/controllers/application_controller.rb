@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :save_visit
   before_action :signed_in_user, only: [:edit, :update]
-  
 
   private
 
@@ -24,12 +23,12 @@ class ApplicationController < ActionController::Base
     redirect_to signin_url, notice: "Please sign in." unless signed_in?
   end
 
-
-def save_visit
-  visits = Visit.where("ip = ? AND created_at > ? ", request.remote_ip , Time.now.beginning_of_day )
-    if visits.blank? 
-      create_visit
+  def save_visit
+    visits = Visit.where("ip = ? AND created_at > ? ", request.remote_ip , Time.now.beginning_of_day )
+    create_visit if visits.blank?
   end
-end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => exception.message
+  end
 end
