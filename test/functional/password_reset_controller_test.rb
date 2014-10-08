@@ -30,7 +30,7 @@ class PasswordResetControllerTest
             id:@user.password_reset_token
 
       response_must_be :success
-      assert_redirected_to root_path
+      assert_redirected_to signin_path
     end
   end
 end
