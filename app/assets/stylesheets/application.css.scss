@@ -72,3 +72,16 @@ body {
     color: #0e4766;
     text-decoration: none;
 }
+
+.header_user_name {
+  padding-top: 5px;
+}
+
+.hello_uname {
+  position:relative;
+  display: block;
+  padding: 5px 15px;
+  border-radius: 4px;
+  color: #0088cc;
+  box-shadow: 0 0 0 2px #0088cc;
+}

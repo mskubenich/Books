@@ -4,6 +4,10 @@
       = link_to "Books", root_path, id: "books_logo", class:"active"
       %ul.nav.nav-pills.pull-right
         - if signed_in?
+          %li.header_user_name
+            .hello_uname
+              Hello
+              =current_user.name
           %li
             = link_to "Profile", profile_path
           %li
