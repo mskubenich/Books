@@ -39,7 +39,7 @@ class AuthenticationTest
       find('.btn.btn-primary.btn-lg').click
 
       page.must_have_link 'Sign in', href: signin_path
-      page.must_have_link 'Admin', href: admins_index_path
+      page.must_have_link 'Admin', href: admin_statistics_path
       page.must_have_link 'SignUp', href: signup_path
 
       page.wont_have_link 'Profile'
