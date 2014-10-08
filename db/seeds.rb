@@ -24,13 +24,14 @@ Book.create(title: 'The Idiot', description: 'Fyodor Dostoevsky', year: 1969, la
 Book.create(title: 'The Kobzar', description: 'Taras Shevchenko', year: 1840, language: 'Ukrainian', pages: 0)
 
 puts 'Create visits ...'
-browsers = ['Chrome', 'Opera', 'IE']
+browsers = ['Firefox ', 'Chrome', 'Opera ', 'Safari', 'IE', 'Others']
 os_names = ['Linux', 'Windows']
 os_versions = ['i686', '64 bit']
 ip_address = "#{rand(255)}.#{rand(255)}.#{rand(255)}.#{rand(255)}"
 browser_versions = "#{rand(99)}.#{rand(10)}.#{rand(3000)}.#{rand(99)}"
 
 100.times do |i|
-  Visit.create(ip: ip_address, browser: browsers[rand(2)], browser_version: browser_versions, os_name: os_names[rand(2)], os_version: os_versions[rand(2)], device: "Computer",
+  Visit.create(ip: ip_address, browser: browsers[rand(6)], browser_version: browser_versions, os_name: os_names[rand(2)], os_version: os_versions[rand(2)], device: "Computer",
   	          created_at: Time.now - rand(100).days)
 end
+
