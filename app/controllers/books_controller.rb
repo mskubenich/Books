@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @epub = EPUB::Parser.parse @book.attachment.path
   end
 
   private

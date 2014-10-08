@@ -25,6 +25,8 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 
+gem 'epub-parser'
+
 group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
