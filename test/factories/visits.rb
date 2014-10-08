@@ -2,13 +2,11 @@
 
 FactoryGirl.define do
   factory :visit do
-    ip               '255.255.255.0'
+    ip               '93.192.76.1'
   	browser         'Opera'
-  	browser_version 'Opera'
+  	browser_version '11'
   	os_name         'Linux'
   	os_version      'i686'
   	device          'Computer'
-  	created_at      Time.now
-  	updated_at      nil
   end
 end
