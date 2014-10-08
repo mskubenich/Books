@@ -29,8 +29,12 @@
 
 body {
   padding-top: 70px;
-  background-image: image-url("books.jpg");
+  background-image: url(books.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
 }
 
 .opcity {
