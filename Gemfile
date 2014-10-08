@@ -12,11 +12,11 @@ gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass-extras'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'haml-rails'
-gem 'paperclip', "~> 4.1"
 gem 'agent_orange'
 gem 'rails_best_practices'
 gem 'gon', '~> 5.0.0'
 gem 'cancancan'
+gem "paperclip", "~> 4.2"
 
 gem 'omniauth'
 gem 'omniauth-facebook'

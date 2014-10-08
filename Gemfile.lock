@@ -268,7 +268,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   omniauth-vkontakte
-  paperclip (~> 4.1)
+  paperclip (~> 4.2)
   poltergeist
   rails (= 4.0.2)
   rails_best_practices

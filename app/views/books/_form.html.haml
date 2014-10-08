@@ -14,6 +14,13 @@
           = error
       = f.text_area :description, :class => 'text_field form-control'
   .form-group
+    = f.label :attachment, :class => 'control-label col-md-2'
+    .col-md-10
+      - (@book.errors[:attachment_content_type] + @book.errors[:attachment_file_size] + @book.errors[:attachment_file_name]).each do |error|
+        .label.label-danger
+          = error
+      = f.file_field :attachment, :class => 'text_field form-control'
+  .form-group
     .col-md-offset-2.col-md-10
       = f.submit nil, :class => 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), books_path, :class => 'btn btn-default'
