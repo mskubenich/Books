@@ -28,7 +28,10 @@
     .container
       .row
         .col-md-2
-          test
+          %ul.nav.nav-pills.nav-stacked
+            %li
+              = link_to new_book_path do
+                Add book
         .col-md-10
           = bootstrap_flash
           = yield

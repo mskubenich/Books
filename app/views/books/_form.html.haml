@@ -1,0 +1,19 @@
+= form_for @book, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :title, :class => 'control-label col-md-2'
+    .col-md-10
+      - @book.errors[:title].each do |error|
+        .label.label-danger
+          = error
+      = f.text_field :title, :class => 'text_field form-control'
+  .form-group
+    = f.label :description, :class => 'control-label col-md-2'
+    .col-md-10
+      - @book.errors[:description].each do |error|
+        .label.label-danger
+          = error
+      = f.text_area :description, :class => 'text_field form-control'
+  .form-group
+    .col-md-offset-2.col-md-10
+      = f.submit nil, :class => 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), books_path, :class => 'btn btn-default'
