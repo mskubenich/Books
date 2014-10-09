@@ -1,9 +1,12 @@
 = provide(:title, @user.name)
-.container-fluid.hero-unit
-  = link_to "Edit your profile", edit_profile_path, class: "btn btn-primary right"
+.container-fluid.jumbotron
+  %p
+    = link_to "Edit your profile", edit_profile_path, class: "btn btn-primary right"
+  %br
+    = link_to new_book_path, class: "btn btn-default right" do
+      Add book
   .row-fluid
-    .span2
+    .col-lg-2
       = image_tag @user.avatar.url(:small), class: "img-rounded"
-    .span10
-      .user_name
-        %h3= @user.name
+    .col-lg-10
+      %h3.user_name= @user.name

@@ -7,7 +7,6 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     = viewport_meta_tag
-    %title= content_for?(:title) ? yield(:title) : "AgentsOnMap"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -22,18 +21,8 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
 
   %body
-    %nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
-      .container
-        = render "layouts/header"
-    .container
-      .row
-        .col-md-2
-          %ul.nav.nav-pills.nav-stacked
-            %li
-              = link_to new_book_path do
-                Add book
-        .col-md-10
-          = bootstrap_flash
-          = yield
-      %footer
-        %p &copy; Books Team 2014
+    = render "layouts/header"
+    = bootstrap_flash
+    = yield
+    %footer
+      %p &copy; Books Team 2014
