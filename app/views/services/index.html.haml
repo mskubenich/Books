@@ -1,0 +1,56 @@
+:css
+  body {
+      padding: 5%;
+  }
+
+  .span12.text-center{
+      margin: 0;
+  }
+  fieldset.btn.profile{
+    width: 70%;
+  }
+  table tr td div{
+     word-wrap: break-word;
+     width: 100px;
+  }
+
+.span12.text-center
+  %fieldset.btn.profile
+
+    The following
+    = @services.count == 1 ? 'account is' : 'accounts are'
+    connected with your local account:
+    %table.table.table-striped
+      %thead
+      %tr
+        %th Service
+        %th Name
+        %th Email
+        %th Uid
+        %th
+      %tbody
+      - @services.each do |service|
+        %tr
+          %td
+            = image_tag "#{service.provider}_64.png"
+          %td
+            = service.uname
+          %td
+            = service.uemail != '' ? service.uemail : 'not set'
+          %td
+            = service.user_id
+          %td{style: 'text-align: right'}
+            - @services.count == 1 ? @msg = 'Removing the last account linked might lock you out of your account if you do not know the email/password sign-in of your local account!' : @msg = ''
+            = link_to 'Remove this service', service, :confirm => 'Are you sure you want to remove this authentication service? ' + @msg, :method => :delete, :class => 'btn btn-danger'
+    You can connect more services to your account:
+    %br
+    %a{href: '/auth/facebook'}
+      = image_tag 'facebook_64.png', size: '50x50', alt: 'Facebook'
+    %a{href: '/auth/twitter'}
+      = image_tag 'twitter_64.png', size: '50x50', alt: 'Twitter'
+    %a{href: '/auth/google_oauth2'}
+      = image_tag 'google_64.png', size: '50x50', alt: 'Google'
+    %a{href: '/auth/github'}
+      = image_tag 'github_64.png', size: '50x50', alt: 'Github'
+    %a{href: '/auth/vkontakte'}
+      = image_tag 'vkontakte_64.png', size: '50x50', alt: 'Vkontakte'
