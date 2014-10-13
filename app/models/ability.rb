@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     elsif user.user?
       can :read, :all
+      can :manage, Book
     end
   end
 end
