@@ -11,7 +11,6 @@ class ServicesController < ApplicationController
     if omniauth && params[:service]
       service_route = params[:service]
       @service = service_route
-          puts "++++++++++++++++++++++++++++++++#{@service}"
         if service_route == 'facebook'
           omniauth['extra']['raw_info']['email'] ? @email =  omniauth['extra']['raw_info']['email'] : @email = ''
           omniauth['extra']['raw_info']['name'] ? @name =  omniauth['extra']['raw_info']['name'] : @name = ''
