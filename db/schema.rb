@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930072857) do
+ActiveRecord::Schema.define(version: 20141013123455) do
+
   create_table "authors", force: true do |t|
     t.string   "name"
     t.string   "surname"
@@ -91,9 +92,13 @@ ActiveRecord::Schema.define(version: 20140930072857) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "auth_token"
-    t.integer  "role_id"
     t.string   "sign_in_token"
     t.integer  "role_id"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "google"
+    t.string   "github"
+    t.string   "vkontakte"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

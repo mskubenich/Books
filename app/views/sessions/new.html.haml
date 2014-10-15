@@ -1,34 +1,33 @@
-.container
-  =provide(:title, "Sign in")
-  .opcity_signin
-  .sign_in.center
-    %h1#sign_in.center Sign in
-    = form_for(:session, url: sessions_path) do |f|
-      .form-horizontal
-        .form
-          .center= f.label :email
-          = f.text_field :email, placeholder: "Type your email"
-        .form
-          .center= f.label :password
-          = f.password_field :password, placeholder: "Type your password"
-      %p= link_to "forgotten password?", new_password_reset_path
-      .center= f.submit "     Login     ", class: "btn btn-primary btn-lg"
-      %p New user? #{link_to "Sign up now!", signup_path}
-  .opcity_services
-  .services
-    %h4.center Or you can sign in to this account using:
-    %a.auth_provider{:href => "/auth/facebook"}
-      = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
-      Facebook
-    %a.auth_provider{:href => "/auth/twitter"}
-      = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
-      Twitter
-    %a.auth_provider{:href => "/auth/google_oauth2"}
-      = image_tag "google_64.png", :size => "64x64", :alt => "Google"
-      Google
-    %a.auth_provider{:href => "/auth/github"}
-      = image_tag "github_64.png", :size => "64x64",  :alt => "Github"
-      Github
-    %a.auth_provider{:href => "/auth/vkontakte"}
-      = image_tag "vk_64.png", :size => "64x64",  :alt => "Vkontakte"
-      Vkontakte
+=provide(:title, "Sign in")
+.opcity_signin
+.sign_in.center
+  %h1#sign_in.center Sign in
+  = form_for(:session, url: sessions_path) do |f|
+    .form-horizontal
+      .form
+        .center= f.label :email
+        = f.text_field :email, placeholder: "Type your email"
+      .form
+        .center= f.label :password
+        = f.password_field :password, placeholder: "Type your password"
+    %p= link_to "forgotten password?", new_password_reset_path
+    .center= f.submit "     Login     ", class: "btn btn-primary btn-lg"
+    %p New user? #{link_to "Sign up now!", signup_path}
+.opcity_services
+.services
+  %h4.center Or you can sign in to this account using:
+  %a.auth_provider{:href => "/auth/facebook"}
+    = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
+    Facebook
+  %a.auth_provider{:href => "/auth/twitter"}
+    = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
+    Twitter
+  %a.auth_provider{:href => "/auth/google_oauth2"}
+    = image_tag "google_64.png", :size => "64x64", :alt => "Google"
+    Google
+  %a.auth_provider{:href => "/auth/github"}
+    = image_tag "github_64.png", :size => "64x64",  :alt => "Github"
+    Github
+  %a.auth_provider{:href => "/auth/vkontakte"}
+    = image_tag "vkontakte_64.png", :size => "64x64",  :alt => "Vkontakte"
+    Vkontakte
