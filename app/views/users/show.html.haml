@@ -5,13 +5,12 @@
       .user_name
         %h3= @user.name
       .center= image_tag @user.avatar.url(:small), class: "img-rounded"
-      %br
+      %p
         .center= link_to "Edit your profile", edit_profile_path, class: "btn btn-primary"
-      %br
-        .center= link_to "Manage services", services_path, class: "btn btn-primary right"
-
-        %p
-          .center= link_to "Add book", new_book_path, class: "btn btn-default"
+      %p
+        .center= link_to "Manage services", services_path, class: "btn btn-primary"
+      %p
+        .center= link_to "Add book", new_book_path, class: "btn btn-default"
     .col-lg-8.friends-sidebar
       %p.bg-primary.center Friends
       =render 'users/friends'
