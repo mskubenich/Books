@@ -33,8 +33,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, :on => :create
   validates :password_confirmation, presence: true, :on => :update, :unless => lambda{ |user| user.password.blank? }
 
-  has_attached_file :avatar, :styles => {small: "150x150>", thumb: "100x100>"}, default_url: 'default_avatar.png'
-  validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
+  has_attached_file :avatar, :styles => {:small => "150x150>", :thumb => "100x100>"}, :default_url => 'default_avatar.png'
+  validates_attachment :avatar,
+                       :content_type => { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } ,
                        :size => {:in => 0..1.megabytes}
 
   before_create { generate_token(:auth_token) }

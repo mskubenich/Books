@@ -1,12 +1,12 @@
-.hero-unit
-  %table
+.jumbotron
+  %table.table-hover
     - @users.each do |user|
       %tr
         %td.ul_column
           =image_tag user.avatar.url(:small), class: "img-rounded"
         %td.ul_column
-          = user.name
-          %p
+          %h3= user.name
+          %h5
             = link_to "Add to friends", { :controller => "friendship",
                                                               :action => "create",
                                                               :id => user.name },

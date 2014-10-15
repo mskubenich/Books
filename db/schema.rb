@@ -12,8 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140930072857) do
-create a friendship model; migrate table 'friendship' into database
-
   create_table "authors", force: true do |t|
     t.string   "name"
     t.string   "surname"

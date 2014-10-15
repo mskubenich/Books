@@ -1,4 +1,4 @@
-%table
+%table.table-hover
   %tr
     %th{:align => "left", :colspan => "3"}
       You have
@@ -16,7 +16,7 @@
           :confirm => "Really delete friendship with #{friend.name}?"
   - unless @user.requested_friends.empty?
     %tr
-      %th{:align => "left", :colspan => "3"}
+      %th.text-success{:align => "left", :colspan => "3"}
         = pluralize(@user.requested_friends.count, "requested friend")
     - @user.requested_friends.each do |requester|
       %tr
@@ -35,7 +35,7 @@
             :confirm => "Really decline friendship with #{requester.name}?"
   - unless @user.pending_friends.empty?
     %tr
-      %th{:align => "left", :colspan => "3"}
+      %th.text-success{:align => "left", :colspan => "3"}
         = pluralize(@user.pending_friends.count, "pending friend")
     - @user.pending_friends.each do |pending_friend|
       %tr
