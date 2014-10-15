@@ -2,6 +2,8 @@
 .container-fluid.hero-unit
   = link_to "Edit your profile", edit_profile_path, class: "btn btn-primary right"
   .row-fluid
+  = link_to "Manage services", services_path, class: "btn btn-primary right"
+  .row-fluid
     .span2
       = image_tag @user.avatar.url(:small), class: "img-rounded"
     .span10
