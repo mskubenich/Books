@@ -51,6 +51,7 @@ class ServicesController < ApplicationController
           params[:name] = params[:name][0, 39] if params[:name].to_s.length > 39
           user = User.new(:email => @email,
                           :password => SecureRandom.hex(10),
+                          :password_confirmation => @password,
                           :name => @name,
                           :facebook => params[:facebook_link],
                           :twitter => params[:twitter_link],
@@ -58,7 +59,7 @@ class ServicesController < ApplicationController
                           :github => params[:github_link],
                           :vkontakte => params[:vkontakte_link]
           )
-          user.services.build(:provider => @provider, :uid => @uid, :uname => @name, :uemail => @email)
+          user.services.build(:provider => @provider.capitalize, :uid => @uid, :uname => @name, :uemail => @email)
           user.save!
 
           flash[:notice] = 'Your account on CommunityGuides has been created via ' + params[:provider].capitalize + '. In your profile you can change your personal information and add a local password.'
