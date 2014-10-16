@@ -50,7 +50,7 @@ class ServicesController < ApplicationController
         else
           params[:name] = params[:name][0, 39] if params[:name].to_s.length > 39
           user = User.new(:email => @email,
-                          :password => SecureRandom.hex(10),
+                          :password => @password = SecureRandom.hex(10),
                           :password_confirmation => @password,
                           :name => @name,
                           :facebook => params[:facebook_link],
