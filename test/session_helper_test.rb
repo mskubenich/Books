@@ -21,4 +21,3 @@ class SessionHelperTest <  MiniTest::Spec
   end
 
 end
-
