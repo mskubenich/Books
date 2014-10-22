@@ -18,6 +18,7 @@ DatabaseCleaner.strategy = :truncation
 
 class MiniTest::Spec
   include ActiveSupport::Testing::SetupAndTeardown
+  include FactoryGirl::Syntax::Methods
 
   alias :method_name :__name__ if defined? :__name__
 
@@ -27,6 +28,7 @@ class MiniTest::Spec
 end
 
 class ControllerSpec < MiniTest::Spec
+  include FactoryGirl::Syntax::Methods
   include Rails.application.routes.url_helpers
   include ActionController::TestCase::Behavior
 
@@ -38,6 +40,7 @@ end
 MiniTest::Spec.register_spec_type(/Controller$/, ControllerSpec)
 
 class AcceptanceSpec < MiniTest::Spec
+  include FactoryGirl::Syntax::Methods
   include Rails.application.routes.url_helpers
   include Capybara::DSL
 
