@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -11,3 +12,15 @@ FactoryGirl.define do
   	updated_at            nil
   end
 end
+=======
+include ActionDispatch::TestProcess
+FactoryGirl.define do
+  factory :user do
+    sequence(:name) { |n| "user#{n}" }
+    sequence(:email) { |n| "user#{n}@mail.com" }
+    password "Test123"
+    password_confirmation "Test123"
+    avatar { fixture_file_upload(Rails.root.join('test', 'factories', 'images', 'taco.png'), 'image/png') }
+  end
+end
+>>>>>>> sessions_helper_test

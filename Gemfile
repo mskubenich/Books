@@ -3,7 +3,15 @@ gem 'rails', '4.0.2'
 
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.2'
+<<<<<<< HEAD
 gem 'mysql2'
+=======
+
+# Use sqlite3 as the database for Active Record
+gem 'mysql2'
+
+# Use SCSS for stylesheets
+>>>>>>> sessions_helper_test
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -25,18 +33,34 @@ gem 'omniauth-vkontakte'
 
 gem 'gon'
 group :test do
+<<<<<<< HEAD
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
   gem 'factory_girl_rails'
   gem 'capybara'
+=======
+  #Unit Test - default testing framework
+  #gem 'rspec-rails' #testing framework
+  gem 'minitest',           :require => nil # testing framework
+  gem "minitest-rails-shoulda"
+
+  gem 'capybara' # additional framework for end-to-end testing
+>>>>>>> sessions_helper_test
   gem 'capybara_minitest_spec'
   gem 'capybara-screenshot'
-  gem 'database_cleaner'
-  gem 'minitest',           :require => nil
-  gem 'poltergeist'
+
+  gem "capybara-webkit"
+  gem 'phantomjs'
+  gem 'poltergeist' # connect capybara to phantomjs
+
+  gem 'factory_girl_rails' #hold testing data
+  gem 'database_cleaner' # cleaning database
   gem 'rr'
   gem 'timecop'
   gem 'webmock',            :require => nil
+<<<<<<< HEAD
   gem 'shoulda-matchers'
   gem 'minitest-matchers'
+=======
+>>>>>>> sessions_helper_test
 end

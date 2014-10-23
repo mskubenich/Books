@@ -1,7 +1,7 @@
 
 development:
   user_name: root
-  password: remeta
+  password: gora
   adapter: mysql2
   database: books_db_development
   pool: 5
@@ -9,7 +9,7 @@ development:
 
 test:
   user_name: root
-  password: remeta
+  password: gora
   adapter: mysql2
   database: books_db_test
   pool: 5
@@ -17,7 +17,7 @@ test:
 
 production:
   user_name: root
-  password: remeta
+  password: gora
   adapter: mysql2
   database: books_db
   pool: 5

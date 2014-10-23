@@ -16,3 +16,14 @@ class BookTest < MiniTest::Spec
     end
   end
 end
+
+
+
+require "minitest_helper"
+
+describe Product do
+  it "includes name in to_param" do
+    product = Product.create!(name: "Book")
+    product.to_param.must_equal "#{product.id}-Book"
+  end
+end
