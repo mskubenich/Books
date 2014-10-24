@@ -1,0 +1,28 @@
+.jumbotron
+  %dl.dl-horizontal
+    %dt Titles:
+    %dd= @epub.metadata.titles
+    %dt
+      Title:
+    %dd= @epub.metadata.title
+    %dt
+      Title:
+    %dd
+      = @epub.metadata.creators # => Creators(authors)
+    - @epub.each_page_on_spine do |page|
+      %dt
+        Media type:
+      %dd= page.media_type
+      %dt
+        Entry name:
+      %dd
+        = page.entry_name
+      %dt
+        Raw:
+      %dd
+        = page.read
+      %dt
+        Nokogiri doc:
+      %dd
+        = page.content_document.nokogiri
+      - break

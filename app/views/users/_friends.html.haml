@@ -1,0 +1,50 @@
+%table.table-hover
+  %tr
+    %th{:align => "left", :colspan => "3"}
+      You have
+      =pluralize(@user.friends.count, " friend")
+  - @user.friends.each do |friend|
+    %tr
+      %td.ul_column
+        = image_tag friend.avatar.url(:thumb), class: "img-rounded"
+      %td.ul_column
+        =friend.name
+      %td.adc
+        = link_to "Delete", { :controller => "friendship",
+                              :action => "delete",
+                              :id => friend.name },
+          :confirm => "Really delete friendship with #{friend.name}?"
+  - unless @user.requested_friends.empty?
+    %tr
+      %th.text-success{:align => "left", :colspan => "3"}
+        = pluralize(@user.requested_friends.count, "requested friend")
+    - @user.requested_friends.each do |requester|
+      %tr
+        %td.ul_column
+          = image_tag requester.avatar.url(:thumb), class: "img-rounded"
+        %td.ul_column
+          =requester.name
+        %td.adc
+          = link_to "Accept", {:controller => "friendship",
+                                :action => "accept",
+                                :id => requester.name}
+          |
+          =link_to "Decline", { :controller => "friendship",
+                                :action => "decline",
+                                :id => requester.name },
+            :confirm => "Really decline friendship with #{requester.name}?"
+  - unless @user.pending_friends.empty?
+    %tr
+      %th.text-success{:align => "left", :colspan => "3"}
+        = pluralize(@user.pending_friends.count, "pending friend")
+    - @user.pending_friends.each do |pending_friend|
+      %tr
+        %td.ul_column
+          = image_tag pending_friend.avatar.url(:thumb), class: "img-rounded"
+        %td.ul_column
+          = pending_friend.name
+        %td.adc
+          = link_to "Cancel request", { :controller => "friendship",
+                                        :action => "cancel",
+                                        :id => pending_friend.name },
+            :confirm => "Cancel friendship request?"

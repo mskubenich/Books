@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs
+  %li{class: "#{ 'active' if @current_tab == :statistics}"}
+    = link_to admin_statistics_path do
+      Statistics
+  %li{class: "#{ 'active' if @current_tab == :user}"}
+    = link_to admin_users_path do
+      Users

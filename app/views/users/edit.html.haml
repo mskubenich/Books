@@ -1,8 +1,8 @@
 =provide(:title, 'Edit profile')
-.row.hero-unit
+.row.jumbotron
   %h1.center
     %span#update Update your profile
-  .span5.offset4
+  .center
     = form_for(@user) do |f|
       = render 'shared/error_messages'
       .field_label= f.label :name
@@ -17,5 +17,5 @@
       .field_label= f.label "Password_confirmation"
       = f.password_field :password_confirmation, placeholder: "Confirm new password"
       .field_label= f.label "Chose new avatar"
-      = f.file_field :avatar
+      #avatar= f.file_field :avatar
       %p#sub_button= f.submit "Save changes", class: "btn btn-primary btn-lg"

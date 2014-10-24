@@ -1,8 +1,11 @@
 BooksApp::Application.routes.draw do
 
-  get "password_resets/new"
-  resources :users, only: [ :update, :create, :show ]
-  get "admins/index", to: "admin/admins#index"
+  resources :users, only: [ :update, :create, :show, :index ] do
+    collection do
+      get :confirm
+    end
+  end
+
   root :to => "pages#index"
   get "pages/index"
   get "/signup", to: "users#new"
@@ -11,13 +14,30 @@ BooksApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
   namespace :admin do
     resources :users, only: [ :index ]
     resources :statistics, only: [ :index ]
   end  
 
-  get '/auth/:service/callback', to: 'services#create'
+  match '/auth/:service/callback', to: 'services#create', via: 'get'
+  namespace :admin do
+    resources :users, only: [ :index ]
+    resources :statistics, only: [ :index ]
+  end 
   resources :services, only: [:index, :create, :destroy]
 
+  resources :books, only: [:index, :new, :create, :show]
+
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  resources :friendship, only: [:create, :accept, :decline, :cancel, :delete] do
+    collection do
+      get :create
+      get :accept
+      get :decline
+      get :cancel
+      get :delete
+    end
+  end
 end

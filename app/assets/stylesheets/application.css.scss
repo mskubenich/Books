@@ -1,17 +1,8 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
- *= require bootstrap_and_overrides
  *= require_tree
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -28,16 +19,20 @@
 }
 
 body {
-  padding-top: 70px;
-  background-image: image-url("books.jpg");
+  background-image: url(books.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+  padding-top: 60px;
 }
 
 .opcity {
   position: absolute;
   width: 500px;
   height: 200px;
-  top: 100px;
+  top: 130px;
   margin-left: 25%;
   border-radius: 10px;
   background-color: #eeeeee;
@@ -47,7 +42,7 @@ body {
   position: absolute;
   width: 500px;
   height: 200px;
-  top: 100px;
+  top: 130px;
   margin-left: 25%;
   border-radius: 10px;
 }
@@ -72,3 +67,17 @@ body {
     color: #0e4766;
     text-decoration: none;
 }
+
+.book-list{
+  td, th {
+    border: 1px solid #0088cc;
+  }
+  th {
+    background-color: #0088cc;
+    color: white;
+  }
+  td {
+    background-color: white;
+  }
+}
+

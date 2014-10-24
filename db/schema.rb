@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140908110041) do
 =======
 ActiveRecord::Schema.define(version: 20140822125529) do
 >>>>>>> sessions_helper_test
+=======
+ActiveRecord::Schema.define(version: 20141013123455) do
+>>>>>>> ef43ba6f0b25ee4a1570a920b5b05b4bd84b7f44
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -24,23 +28,9 @@ ActiveRecord::Schema.define(version: 20140822125529) do
     t.datetime "updated_at"
   end
 
-  create_table "book2s", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "author_id"
-    t.string   "genre_id"
-    t.string   "year"
-    t.string   "pages"
-    t.string   "format"
-    t.string   "language"
-    t.string   "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "books", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "author_id"
     t.integer  "genre_id"
     t.integer  "year"
@@ -50,6 +40,10 @@ ActiveRecord::Schema.define(version: 20140822125529) do
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
@@ -63,10 +57,23 @@ ActiveRecord::Schema.define(version: 20140822125529) do
   add_index "books_genres", ["book_id"], name: "index_books_genres_on_book_id", using: :btree
   add_index "books_genres", ["genre_id"], name: "index_books_genres_on_genre_id", using: :btree
 
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "accepted_at"
+    t.datetime "updated_at"
+  end
+
   create_table "genres", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string "name"
   end
 
   create_table "services", force: true do |t|
@@ -94,8 +101,18 @@ ActiveRecord::Schema.define(version: 20140822125529) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "auth_token"
+<<<<<<< HEAD
 =======
 >>>>>>> sessions_helper_test
+=======
+    t.string   "sign_in_token"
+    t.integer  "role_id"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "google"
+    t.string   "github"
+    t.string   "vkontakte"
+>>>>>>> ef43ba6f0b25ee4a1570a920b5b05b4bd84b7f44
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

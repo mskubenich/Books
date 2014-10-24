@@ -1,17 +1,22 @@
-%header.navbar-fixed-top.navbar-default
-  .navbar-inner
-    .container
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
       = link_to "Books", root_path, id: "books_logo", class:"active"
-      %ul.nav.nav-pills.pull-right
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
         - if signed_in?
+          %li
+            %p.navbar-text
+              Hello
+              = link_to current_user.name, profile_path
           %li
             = link_to "Profile", profile_path
           %li
             = link_to "Sign out", signout_path , method: "delete"
+          %li.active
+            = link_to "Admin", admin_statistics_path if current_user.admin?
         - else
           %li
             = link_to "Sign in", signin_path
           %li
             = link_to "SignUp", signup_path
-        %li.active
-          = link_to "Admin", admin_statistics_path

@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  # before_action :correct_user,   only: [:edit, :update]
+
+  def index
+    @users = User.all
+  end
 
   def show
     @user = current_user
@@ -10,12 +15,13 @@ class UsersController < ApplicationController
    
   def create
     @user = User.new( user_params )
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome!"
-      redirect_to @user
-    else
-      render 'new'
+    respond_to do |format|
+      if @user.save
+        UserMailer.account_confirmation_mailer(@user, confirm_users_url(sign_in_token: @user.sign_in_token) ).deliver
+        format.html { redirect_to(root_path, notice: 'You have successfully registered. We send you an activation email! Please check your email and click the link to activate the report. ') }
+      else
+        format.html { render action: 'new' }
+      end
     end
   end
 
@@ -24,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     user = User.find_by_email(current_user.email).try(:authenticate, params[:current_password])
     if user && @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
@@ -37,6 +43,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm
+    @user = User.find_by_sign_in_token(params[:sign_in_token])
+    unless @user
+     redirect_to(root_path, notice: 'Invalid confirmation token')  
+    else 
+      @user.update_attribute(:sign_in_token , nil)
+      sign_in @user
+      redirect_to @user, :notice => "Email has been verified."
+    end
+  end
+
   private
 
   def user_params
@@ -44,12 +61,13 @@ class UsersController < ApplicationController
                                  :password_confirmation, :avatar)
   end
 
-  def signed_in_user
-    redirect_to signin_url, notice: "Please sign in." unless signed_in?
-  end
-
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
+
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
 end

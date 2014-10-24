@@ -1,14 +1,8 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 .sign_in {
   position: absolute;
   width: 500px;
   height: 200px;
-  top: 100px;
+  top: 130px;
   margin-left: 25%;
   border-radius: 10px;
 }
@@ -17,7 +11,7 @@
   position: absolute;
   width: 500px;
   height: 300px;
-  top: 100px;
+  top: 130px;
   margin-left: 25%;
   border-radius: 10px;
   background-color: #eeeeee;
@@ -26,7 +20,7 @@
 
 .services {
   position: absolute;
-  margin-top: 400px;
+  top: 480px;
   margin-left: 30%;
 }
 
@@ -34,7 +28,7 @@
   position: absolute;
   width: 500px;
   height: 150px;
-  top: 460px;
+  top: 480px;
   margin-left: 25%;
   border-radius: 10px;
   background-color: #eeeeee;

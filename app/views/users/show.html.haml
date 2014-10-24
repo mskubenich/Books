@@ -1,9 +1,17 @@
 = provide(:title, @user.name)
-.container-fluid.hero-unit
-  = link_to "Edit your profile", edit_profile_path, class: "btn btn-primary right"
+.container-fluid.jumbotron
   .row-fluid
-    .span2
-      = image_tag @user.avatar.url(:small), class: "img-rounded"
-    .span10
+    .col-lg-4
       .user_name
         %h3= @user.name
+      .center= image_tag @user.avatar.url(:small), class: "img-rounded"
+      %p
+        .center= link_to "Edit your profile", edit_profile_path, class: "btn btn-primary"
+      %p
+        .center= link_to "Manage services", services_path, class: "btn btn-primary"
+      %p
+        .center= link_to "Add book", new_book_path, class: "btn btn-default"
+    .col-lg-8.friends-sidebar
+      %p.bg-primary.center Friends
+      =render 'users/friends'
+      .center=link_to "Find more friends", users_path, class: "btn btn-info"
