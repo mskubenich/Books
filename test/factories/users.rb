@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # Read about factories at https://github.com/thoughtbot/factory_girl
-
+# 1-st variant user:
 FactoryGirl.define do
   factory :user do
   	name                  'user name'
@@ -12,7 +11,7 @@ FactoryGirl.define do
   	updated_at            nil
   end
 end
-=======
+# 2-nd var.(my):
 include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :user do
@@ -23,4 +22,4 @@ FactoryGirl.define do
     avatar { fixture_file_upload(Rails.root.join('test', 'factories', 'images', 'taco.png'), 'image/png') }
   end
 end
->>>>>>> sessions_helper_test
+

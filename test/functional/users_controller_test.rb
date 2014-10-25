@@ -37,20 +37,19 @@ class UsersControllerTest
                      }
 
       response_must_be :ok
-    end  
-   
+    end
+
     it 'should get confirm' do
       @user = FactoryGirl.create(:user)
       sign_in @user
-      get :confirm 
+      get :confirm
       response_must_be :ok
-    end  
+    end
   end
-<<<<<<< HEAD
-=======
-end
 
-# !!!!
+# !!!! This is text from my  branch "session helper test"
+#  Verify the correctness:
+
 require  "minitest_helper"
 
 describe UsersController do
@@ -58,5 +57,4 @@ describe UsersController do
     skip "Do this now"
     number_to_currency(1).must_equal "list 1"
   end
->>>>>>> sessions_helper_test
 end

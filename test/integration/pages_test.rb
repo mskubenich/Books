@@ -2,22 +2,15 @@ require_relative '../minitest_helper'
 
 class PagesTest
   describe "Pages Integration", :js => true do
-<<<<<<< HEAD
-    #it 'should find hello on home page' do
-    #  visit root_path
-    #  page.must_have_content 'Hello'
-    #end
-=======
+  # !!! Verify the correctness:
     it 'should find hello on home page' do
       visit root_path
       page.must_have_content ("Hello!!!")
     end
->>>>>>> sessions_helper_test
   end
 end
+# !!! Verify the correctness:
 
-
-# !!!
 require "minitest_helper"
 
 describe "Products integration" do

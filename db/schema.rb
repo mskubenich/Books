@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140908110041) do
-=======
-ActiveRecord::Schema.define(version: 20140822125529) do
->>>>>>> sessions_helper_test
-=======
 ActiveRecord::Schema.define(version: 20141013123455) do
->>>>>>> ef43ba6f0b25ee4a1570a920b5b05b4bd84b7f44
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -96,15 +88,10 @@ ActiveRecord::Schema.define(version: 20141013123455) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-<<<<<<< HEAD
     t.string   "remember_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "auth_token"
-<<<<<<< HEAD
-=======
->>>>>>> sessions_helper_test
-=======
     t.string   "sign_in_token"
     t.integer  "role_id"
     t.string   "facebook"
@@ -112,7 +99,6 @@ ActiveRecord::Schema.define(version: 20141013123455) do
     t.string   "google"
     t.string   "github"
     t.string   "vkontakte"
->>>>>>> ef43ba6f0b25ee4a1570a920b5b05b4bd84b7f44
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
